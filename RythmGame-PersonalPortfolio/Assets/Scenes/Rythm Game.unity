@@ -782,14 +782,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetween: 1
   spawning: 1
-  nodePrefab: {fileID: 1431380038381447192, guid: 41819d014bd42444ab8d3bc888de93ad,
-    type: 3}
+  nodePrefabs:
+  - {fileID: 1431380038381447192, guid: 41819d014bd42444ab8d3bc888de93ad, type: 3}
+  - {fileID: 1431380038381447192, guid: 5a8eff140a2d7794eb4fc35d3943c7ea, type: 3}
+  - {fileID: 1431380038381447192, guid: cd22d6e8cbc6fe640bf84d3349327622, type: 3}
+  - {fileID: 1431380038381447192, guid: 02916af7e355f4349a7604e491c19912, type: 3}
   spawnPositions:
   - {fileID: 2116379850}
   - {fileID: 2116500618}
   - {fileID: 1247615652}
   - {fileID: 353652516}
   activeNodes: []
+  onBeatEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!65 &1933232936
 BoxCollider:
   m_ObjectHideFlags: 0

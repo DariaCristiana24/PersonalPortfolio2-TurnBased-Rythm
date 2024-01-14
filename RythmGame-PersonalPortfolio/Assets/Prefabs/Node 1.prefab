@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3226178875518338603}
   - component: {fileID: 3345329631672117557}
   m_Layer: 0
-  m_Name: Node
+  m_Name: Node 1
   m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e7588fc38d5eaeb489d6fc6e81d238c0, type: 2}
+  - {fileID: 2100000, guid: dc9e81bdd18cedb408f3c16307168eca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

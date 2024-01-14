@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class NodeManager : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class NodeManager : MonoBehaviour
     bool spawning = true;
 
     [SerializeField]
-    GameObject nodePrefab;
+    List<GameObject> nodePrefabs = new List<GameObject>();
 
     [SerializeField]
     List<Transform> spawnPositions = new List<Transform>();
 
 
     public List<GameObject> activeNodes = new List<GameObject>();
+
+    [SerializeField]
+    private FMODUnity.EventReference onBeatEvent;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,14 +40,20 @@ public class NodeManager : MonoBehaviour
                 spawnNode();
             }
         }
+
+        /* if(paramater == "true"){
+            spawnNode();
+         paramter.set(false)
+        }
+        */
     }
 
     void spawnNode()
     {
-        int nodePos = Random.Range(0, spawnPositions.Count-1);
+        int nodePos = Random.Range(0, spawnPositions.Count);
         Transform spawnPos = spawnPositions[nodePos];
 
-        GameObject node = Instantiate(nodePrefab, spawnPos.position, Quaternion.identity);
+        GameObject node = Instantiate(nodePrefabs[nodePos], spawnPos.position, Quaternion.identity);
         node.GetComponent<NodeBehaviour>().key = nodePos;
         activeNodes.Add(node);
         timer = timeBetween;
