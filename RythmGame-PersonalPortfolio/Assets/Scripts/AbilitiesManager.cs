@@ -1,114 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class AbilitiesManager : MonoBehaviour
 {
-
-    [SerializeField]
-    List<int> abilities = new List<int>();
-    [SerializeField]
-    List<bool> abilitiesUsed = new List<bool>();
-
-
-
-    bool chronological;
     // Start is called before the first frame update
+    [SerializeField]
+    List<int> chosenAbilities = new List<int>();
+    [SerializeField]
+    List<int> harmonizedAbilities = new List<int>();
+
+    HarmonizingManager harmonizingManager;
     void Start()
     {
-        
+        harmonizingManager = FindObjectOfType<HarmonizingManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        
+    }
+
+    public void AddAbility(int characterID, int chosenColor)
+    {
+        chosenAbilities[characterID] = chosenColor;
+    }
+
+    public void SetAbilities()
+    {
+        harmonizedAbilities = new List<int>( chosenAbilities);
+
+        if (checkChosenAbiliteis())
         {
-            checkAbbility(1);
+            harmonizedAbilities= harmonizingManager.HarmonizedAbilities(harmonizedAbilities);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else
         {
-            checkAbbility(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            checkAbbility(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            checkAbbility(4);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            checkAbbility(5);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            checkAbbility(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            checkHarmony();
+            Debug.Log("double ability error");
         }
     }
 
-    void checkHarmony()
+    bool checkChosenAbiliteis()
     {
-        if (abilities.Count > 2) 
+        List<int> orderedAbilities = new List<int>(chosenAbilities);
+        orderedAbilities.Sort();   
+        for (int i = 0; i < orderedAbilities.Count-1; i++)
         {
-
-            if (abilities[1] > abilities[0])
+            if (orderedAbilities[i] == orderedAbilities[i + 1])
             {
-                for(int i =1; i< abilities.Count-1; i++)
-                {
-                    if (abilities[i] > abilities[i+1])
-                    {
-                        for (int j = abilities.Count; j > i+1 ; j--)
-                        {
-                            abilities.Remove(abilities[j-1]);
-
-                        }
-                        break;
-                    }
-                    
-                }
+                return false;
             }
-            else
-            {
-                for (int i = 1; i < abilities.Count - 1; i++)
-                {
-                    if (abilities[i] < abilities[i + 1])
-                    {
-                        abilities.Remove(i + 1);
-                    }
-
-                }
-                for (int i = 1; i < abilities.Count - 1; i++)
-                {
-                    if (abilities[i] < abilities[i + 1])
-                    {
-                        for (int j = abilities.Count; j > i + 1; j--)
-                        {
-                            abilities.Remove(abilities[j - 1]);
-
-                        }
-                        break;
-                    }
-
-                }
-            }
-
-            
         }
-    }
-
-    void checkAbbility(int i)
-    {
-        if (!abilitiesUsed[i - 1])
-        {
-            abilities.Add(i);
-            abilitiesUsed[i - 1] = true;
-        }
+        return true;
     }
 }

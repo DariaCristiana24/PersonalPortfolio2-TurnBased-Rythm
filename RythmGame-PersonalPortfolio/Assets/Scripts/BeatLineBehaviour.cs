@@ -54,6 +54,7 @@ public class BeatLineBehaviour : MonoBehaviour
         if (nodeOnBeat)
         {
             Debug.Log("good node");
+            nodeOnBeat = false;
         }
         else
         {
