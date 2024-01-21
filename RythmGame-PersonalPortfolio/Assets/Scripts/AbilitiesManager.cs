@@ -34,6 +34,7 @@ public class AbilitiesManager : MonoBehaviour
         if (checkChosenAbiliteis())
         {
             harmonizedAbilities= harmonizingManager.HarmonizedAbilities(harmonizedAbilities);
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Rhythm);
         }
         else
         {
@@ -54,4 +55,5 @@ public class AbilitiesManager : MonoBehaviour
         }
         return true;
     }
+
 }

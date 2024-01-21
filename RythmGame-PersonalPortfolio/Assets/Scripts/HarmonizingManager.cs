@@ -57,11 +57,11 @@ public class HarmonizingManager : MonoBehaviour
     public List<int> badNodes = new List<int>();
     public List<int> HarmonizedAbilities(List<int> _abilities)
     {
-        
+        badNodes = new List<int>();
 
 
-            //if (_abilities[1] > _abilities[0] && amountOfColors / 2 >= _abilities[1] - _abilities[0]-1) //chronological
-        if(clockwise)
+        //if (_abilities[1] > _abilities[0] && amountOfColors / 2 >= _abilities[1] - _abilities[0]-1) //chronological
+        if (clockwise)
         {
             for(int i =0; i< _abilities.Count-1; i++)
             {
