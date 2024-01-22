@@ -1,353 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8836853354186518189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Part 2/Logic/NoteChooser
-  m_EditorClassIdentifier: 
-  Path: event:/Part 2/Logic/NoteChooser
-  Guid:
-    Data1: 1407289602
-    Data2: 1187103954
-    Data3: -1598319428
-    Data4: 446105766
-  Banks:
-  - {fileID: -676928349986182822}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 5550777625898629536}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-7431439631603667371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Quality Overall
-  m_EditorClassIdentifier: 
-  Name: Quality Overall
-  StudioPath: parameter:/Quality Overall
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3359967419
-    data2: 3773397508
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
---- !u!114 &-6976152851508733029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Part 2/PerformMode
-  m_EditorClassIdentifier: 
-  Path: event:/Part 2/PerformMode
-  Guid:
-    Data1: 1041361899
-    Data2: 1146641768
-    Data3: -1511611757
-    Data4: 1028502378
-  Banks:
-  - {fileID: -676928349986182822}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -3015583906862811657}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-6231766624526635967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NodeSpawnTest/NodeOnBeat
-  m_EditorClassIdentifier: 
-  Name: NodeOnBeat
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 79530701
-    data2: 2910942938
-  Type: 1
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
---- !u!114 &-5693568319593051787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Part 2/Interactive/PlayTuba
-  m_EditorClassIdentifier: 
-  Path: event:/Part 2/Interactive/PlayTuba
-  Guid:
-    Data1: -1065150674
-    Data2: 1180649484
-    Data3: 1213194127
-    Data4: -177799173
-  Banks:
-  - {fileID: -676928349986182822}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 4500
---- !u!114 &-4548005320901685241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/NodeSpawnTest
-  m_EditorClassIdentifier: 
-  Path: event:/NodeSpawnTest
-  Guid:
-    Data1: -1361387289
-    Data2: 1077763727
-    Data3: -2021539139
-    Data4: 505239609
-  Banks:
-  - {fileID: -676928349986182822}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -6231766624526635967}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2000
---- !u!114 &-4280924617360810317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Input
-  m_EditorClassIdentifier: 
-  Name: Input
-  StudioPath: parameter:/Input
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 940796598
-    data2: 1417421138
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - False
-  - True
-  Exists: 1
---- !u!114 &-3015583906862811657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/PerformMode/Ability
-  m_EditorClassIdentifier: 
-  Name: Ability
-  StudioPath: 
-  Min: 0
-  Max: 2
-  Default: 0
-  ID:
-    data1: 1602497486
-    data2: 2916882892
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Horn Blast
-  - Shriek
-  - Harmonic Slider
-  Exists: 1
---- !u!114 &-1032849137114961568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/InputBuffer
-  m_EditorClassIdentifier: 
-  Name: InputBuffer
-  StudioPath: parameter:/InputBuffer
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 3081702440
-    data2: 3727977729
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - False
-  - True
-  Exists: 1
---- !u!114 &-676928349986182822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Fmod/RhythmGame/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638415354280000000
-  FileSizes:
-  - Name: Desktop
-    Value: 221216
-  Exists: 1
---- !u!114 &-523692228557107717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Timing
-  m_EditorClassIdentifier: 
-  Name: Timing
-  StudioPath: parameter:/Timing
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 1579803291
-    data2: 3264105157
-  Type: 2
-  IsGlobal: 1
-  Labels:
-  - Bad
-  - Good
-  Exists: 1
---- !u!114 &-311106055691460864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Part 2/Abilities/Horn Blast
-  m_EditorClassIdentifier: 
-  Path: event:/Part 2/Abilities/Horn Blast
-  Guid:
-    Data1: -1543541604
-    Data2: 1298293351
-    Data3: -410799202
-    Data4: -542342329
-  Banks:
-  - {fileID: -676928349986182822}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 8928978475238365931}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 12972
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 5633108483233302880}
-  - {fileID: -676928349986182822}
-  EditorEvents:
-  - {fileID: -8836853354186518189}
-  - {fileID: -5693568319593051787}
-  - {fileID: -311106055691460864}
-  - {fileID: -6976152851508733029}
-  - {fileID: -4548005320901685241}
-  EditorParameters:
-  - {fileID: 6247151466239001583}
-  - {fileID: -1032849137114961568}
-  - {fileID: -523692228557107717}
-  - {fileID: -7431439631603667371}
-  - {fileID: 3952631826682849161}
-  - {fileID: -4280924617360810317}
-  - {fileID: 4512253880506082306}
-  MasterBanks:
-  - {fileID: -676928349986182822}
-  StringsBanks:
-  - {fileID: 5633108483233302880}
-  cacheTime: 638415354300000000
-  cacheVersion: 131616
---- !u!114 &3952631826682849161
+--- !u!114 &-8797450968529361415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,7 +27,299 @@ MonoBehaviour:
   - Shriek
   - Harmonic Slider
   Exists: 1
---- !u!114 &4512253880506082306
+--- !u!114 &-8140464093581049986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Timing
+  m_EditorClassIdentifier: 
+  Name: Timing
+  StudioPath: parameter:/Timing
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1579803291
+    data2: 3264105157
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Bad
+  - Good
+  Exists: 1
+--- !u!114 &-8115524744079114016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Quality Overall
+  m_EditorClassIdentifier: 
+  Name: Quality Overall
+  StudioPath: parameter:/Quality Overall
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3359967419
+    data2: 3773397508
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-7914316485955155845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Horn Blast/Timing
+  m_EditorClassIdentifier: 
+  Name: Timing
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1579803291
+    data2: 3264105157
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Bad
+  - Good
+  Exists: 1
+--- !u!114 &-6181706057331650014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PerformMode/Ability
+  m_EditorClassIdentifier: 
+  Name: Ability
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 1602497486
+    data2: 2916882892
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Horn Blast
+  - Shriek
+  - Harmonic Slider
+  Exists: 1
+--- !u!114 &-5065510383745487862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NodeSpawnTest/NodeOnBeat
+  m_EditorClassIdentifier: 
+  Name: NodeOnBeat
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 79530701
+    data2: 2910942938
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-2447067156111473014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/InputBuffer
+  m_EditorClassIdentifier: 
+  Name: InputBuffer
+  StudioPath: parameter:/InputBuffer
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3081702440
+    data2: 3727977729
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - False
+  - True
+  Exists: 1
+--- !u!114 &-1860237282720099164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Part 2/PerformMode
+  m_EditorClassIdentifier: 
+  Path: event:/Part 2/PerformMode
+  Guid:
+    Data1: 1041361899
+    Data2: 1146641768
+    Data3: -1511611757
+    Data4: 1028502378
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6181706057331650014}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-692504334824647344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638415354820692762
+  FileSizes:
+  - Name: Desktop
+    Value: 1300
+  Exists: 1
+--- !u!114 &-505463051114768123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Part 2/Abilities/Horn Blast
+  m_EditorClassIdentifier: 
+  Path: event:/Part 2/Abilities/Horn Blast
+  Guid:
+    Data1: -1543541604
+    Data2: 1298293351
+    Data3: -410799202
+    Data4: -542342329
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7914316485955155845}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12972
+--- !u!114 &-460206798540058128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NodeSpawnTest
+  m_EditorClassIdentifier: 
+  Path: event:/NodeSpawnTest
+  Guid:
+    Data1: -1361387289
+    Data2: 1077763727
+    Data3: -2021539139
+    Data4: 505239609
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5065510383745487862}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -692504334824647344}
+  - {fileID: 4458484561728719250}
+  EditorEvents:
+  - {fileID: 4117125365456889440}
+  - {fileID: 8023516786293446955}
+  - {fileID: -505463051114768123}
+  - {fileID: -460206798540058128}
+  - {fileID: -1860237282720099164}
+  EditorParameters:
+  - {fileID: 8557635783253931577}
+  - {fileID: -2447067156111473014}
+  - {fileID: -8140464093581049986}
+  - {fileID: -8115524744079114016}
+  - {fileID: 120616889220364969}
+  - {fileID: -8797450968529361415}
+  - {fileID: 967656683786610772}
+  MasterBanks:
+  - {fileID: 4458484561728719250}
+  StringsBanks:
+  - {fileID: -692504334824647344}
+  cacheTime: 638415354820692762
+  cacheVersion: 131616
+--- !u!114 &120616889220364969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -398,7 +343,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
---- !u!114 &5550777625898629536
+--- !u!114 &967656683786610772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -408,23 +353,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NoteChooser/Timing
+  m_Name: parameter:/Input
   m_EditorClassIdentifier: 
-  Name: Timing
-  StudioPath: 
+  Name: Input
+  StudioPath: parameter:/Input
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 1579803291
-    data2: 3264105157
+    data1: 940796598
+    data2: 1417421138
   Type: 2
   IsGlobal: 1
   Labels:
-  - Bad
-  - Good
+  - False
+  - True
   Exists: 1
---- !u!114 &5633108483233302880
+--- !u!114 &4117125365456889440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Part 2/Logic/NoteChooser
+  m_EditorClassIdentifier: 
+  Path: event:/Part 2/Logic/NoteChooser
+  Guid:
+    Data1: 1407289602
+    Data2: 1187103954
+    Data3: -1598319428
+    Data4: 446105766
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8664932289672337839}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4458484561728719250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -434,17 +407,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638415354300000000
+  Path: Fmod/RhythmGame/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638415354820607102
   FileSizes:
   - Name: Desktop
-    Value: 1300
+    Value: 221216
   Exists: 1
---- !u!114 &6247151466239001583
+--- !u!114 &8023516786293446955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Part 2/Interactive/PlayTuba
+  m_EditorClassIdentifier: 
+  Path: event:/Part 2/Interactive/PlayTuba
+  Guid:
+    Data1: -1065150674
+    Data2: 1180649484
+    Data3: 1213194127
+    Data4: -177799173
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
+--- !u!114 &8557635783253931577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,7 +484,7 @@ MonoBehaviour:
   - B 2
   - C 3
   Exists: 1
---- !u!114 &8928978475238365931
+--- !u!114 &8664932289672337839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Horn Blast/Timing
+  m_Name: parameter:/NoteChooser/Timing
   m_EditorClassIdentifier: 
   Name: Timing
   StudioPath: 

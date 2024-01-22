@@ -32,6 +32,8 @@ public class NodeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("NodeOnBeat", out float nodeOnBeat);
+        UnityEngine.Debug.Log(nodeOnBeat);
         if (spawning)
         {
             timer -= Time.deltaTime;
