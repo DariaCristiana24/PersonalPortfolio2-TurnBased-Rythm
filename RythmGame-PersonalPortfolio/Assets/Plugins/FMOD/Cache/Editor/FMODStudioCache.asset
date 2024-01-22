@@ -158,7 +158,7 @@ MonoBehaviour:
   - {fileID: -6231766624526635967}
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2000
 --- !u!114 &-4280924617360810317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,10 +253,10 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638415319300000000
+  lastModified: 638415354280000000
   FileSizes:
   - Name: Desktop
-    Value: 206176
+    Value: 221216
   Exists: 1
 --- !u!114 &-523692228557107717
 MonoBehaviour:
@@ -345,7 +345,7 @@ MonoBehaviour:
   - {fileID: -676928349986182822}
   StringsBanks:
   - {fileID: 5633108483233302880}
-  cacheTime: 638415319300000000
+  cacheTime: 638415354300000000
   cacheVersion: 131616
 --- !u!114 &3952631826682849161
 MonoBehaviour:
@@ -439,7 +439,7 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638415319300000000
+  lastModified: 638415354300000000
   FileSizes:
   - Name: Desktop
     Value: 1300
