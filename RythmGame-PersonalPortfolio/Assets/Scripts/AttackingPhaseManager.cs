@@ -31,7 +31,7 @@ public class AttackingPhaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartAttacking());
+       // StartCoroutine(StartAttacking());
     }
 
     // Update is called once per frame
@@ -107,8 +107,8 @@ public class AttackingPhaseManager : MonoBehaviour
             characters.Remove(character);
         }
 
-        Destroy(character.transform.GetChild(0).gameObject);
-        character.gameObject.SetActive(false);
+       // Destroy(character.transform.GetChild(0).gameObject);
+         character.transform.GetChild(0).gameObject.SetActive(false);
     }
 
  

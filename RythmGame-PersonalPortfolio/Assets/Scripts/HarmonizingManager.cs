@@ -61,7 +61,7 @@ public class HarmonizingManager : MonoBehaviour
 
 
         //if (_abilities[1] > _abilities[0] && amountOfColors / 2 >= _abilities[1] - _abilities[0]-1) //chronological
-        if (clockwise)
+        if (!clockwise)
         {
             for(int i =0; i< _abilities.Count-1; i++)
             {

@@ -1914,7 +1914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &296447282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,6 +2781,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 212360459}
     m_Modifications:
+    - target: {fileID: 2536616962626549610, guid: ffe7865a576ed2847866f8c58c1863d2,
+        type: 3}
+      propertyPath: isEnemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3960667300668926932, guid: ffe7865a576ed2847866f8c58c1863d2,
         type: 3}
       propertyPath: m_Name
@@ -3935,6 +3940,9 @@ MonoBehaviour:
   - {fileID: 1533633014}
   - {fileID: 2062864629}
   - {fileID: 576811399}
+  damage: 50
+  heal: 10
+  timeInBetweenAttacks: 2
   attackers: 0
 --- !u!1 &1072370000
 GameObject:
@@ -5044,6 +5052,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 212360459}
     m_Modifications:
+    - target: {fileID: 2536616962626549610, guid: ffe7865a576ed2847866f8c58c1863d2,
+        type: 3}
+      propertyPath: isEnemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3960667300668926932, guid: ffe7865a576ed2847866f8c58c1863d2,
         type: 3}
       propertyPath: m_Name
@@ -5999,6 +6012,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 212360459}
     m_Modifications:
+    - target: {fileID: 2536616962626549610, guid: ffe7865a576ed2847866f8c58c1863d2,
+        type: 3}
+      propertyPath: isEnemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3960667300668926932, guid: ffe7865a576ed2847866f8c58c1863d2,
         type: 3}
       propertyPath: m_Name
@@ -7305,6 +7323,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 212360459}
     m_Modifications:
+    - target: {fileID: 2536616962626549610, guid: ffe7865a576ed2847866f8c58c1863d2,
+        type: 3}
+      propertyPath: isEnemy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3960667300668926932, guid: ffe7865a576ed2847866f8c58c1863d2,
         type: 3}
       propertyPath: m_Name
