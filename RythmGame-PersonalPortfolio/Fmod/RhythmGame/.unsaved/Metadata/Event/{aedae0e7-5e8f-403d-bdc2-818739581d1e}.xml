@@ -62,11 +62,22 @@
 	<object class="EventAutomatableProperties" id="{e44b0ab1-f4b5-4586-b112-066074aade5e}" />
 	<object class="MarkerTrack" id="{c6d6669a-488e-4256-95ec-1138a4e7a5f3}" />
 	<object class="GroupTrack" id="{b634a17e-ec73-4b6c-98df-599731a5c4d3}">
+		<relationship name="modules">
+			<destination>{a7c64b2b-d14b-43fd-83f7-bc900fe65075}</destination>
+			<destination>{80da6942-03b5-4635-9010-f74cefa9f40e}</destination>
+			<destination>{5575af4c-e228-4418-8b8b-289d67d7aa6c}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{0ee92f1f-46b2-4461-bf0d-3c6b2a531c9f}</destination>
 		</relationship>
 	</object>
-	<object class="Timeline" id="{341141ea-151f-4a49-9331-b3ac9000edb3}" />
+	<object class="Timeline" id="{341141ea-151f-4a49-9331-b3ac9000edb3}">
+		<relationship name="modules">
+			<destination>{a7c64b2b-d14b-43fd-83f7-bc900fe65075}</destination>
+			<destination>{80da6942-03b5-4635-9010-f74cefa9f40e}</destination>
+			<destination>{5575af4c-e228-4418-8b8b-289d67d7aa6c}</destination>
+		</relationship>
+	</object>
 	<object class="ParameterProxy" id="{645c629a-0aa3-4df9-a029-75ac27038e73}">
 		<relationship name="preset">
 			<destination>{b8e658ca-f639-44c9-bfec-2e8bc1d3c065}</destination>
@@ -89,6 +100,54 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{fc2a76ea-fac7-4096-8591-3cdfd3a1474d}" />
+	<object class="CommandSound" id="{a7c64b2b-d14b-43fd-83f7-bc900fe65075}">
+		<property name="length">
+			<value>0</value>
+		</property>
+		<property name="commandType">
+			<value>3</value>
+		</property>
+		<property name="targetValue">
+			<value>1</value>
+		</property>
+		<relationship name="commandTarget">
+			<destination>{b8e658ca-f639-44c9-bfec-2e8bc1d3c065}</destination>
+		</relationship>
+	</object>
+	<object class="CommandSound" id="{80da6942-03b5-4635-9010-f74cefa9f40e}">
+		<property name="start">
+			<value>3.2238805970149254</value>
+		</property>
+		<property name="length">
+			<value>0</value>
+		</property>
+		<property name="commandType">
+			<value>3</value>
+		</property>
+		<property name="targetValue">
+			<value>1</value>
+		</property>
+		<relationship name="commandTarget">
+			<destination>{b8e658ca-f639-44c9-bfec-2e8bc1d3c065}</destination>
+		</relationship>
+	</object>
+	<object class="CommandSound" id="{5575af4c-e228-4418-8b8b-289d67d7aa6c}">
+		<property name="start">
+			<value>0.03125</value>
+		</property>
+		<property name="length">
+			<value>0</value>
+		</property>
+		<property name="commandType">
+			<value>3</value>
+		</property>
+		<property name="targetValue">
+			<value>1</value>
+		</property>
+		<relationship name="commandTarget">
+			<destination>{b8e658ca-f639-44c9-bfec-2e8bc1d3c065}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{0ee92f1f-46b2-4461-bf0d-3c6b2a531c9f}">
 		<property name="name">
 			<value>NodeOnBeat</value>
