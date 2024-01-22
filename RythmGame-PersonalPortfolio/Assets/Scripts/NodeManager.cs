@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using static UnityEditor.Profiling.RawFrameDataView;
 
 public class NodeManager : MonoBehaviour
 {
@@ -23,17 +24,21 @@ public class NodeManager : MonoBehaviour
 
     [SerializeField]
     private FMODUnity.EventReference onBeatEvent;
+    private FMOD.Studio.EventInstance instance;
     // Start is called before the first frame update
     void Start()
     {
+        instance = FMODUnity.RuntimeManager.CreateInstance(onBeatEvent);
+        instance.start();
         timer = timeBetween;
     }
 
     // Update is called once per frame
     void Update()
     {
-        FMODUnity.RuntimeManager.StudioSystem.getParameterByName("NodeOnBeat", out float nodeOnBeat);
-        UnityEngine.Debug.Log(nodeOnBeat);
+       // FMODUnity.RuntimeManager.StudioSystem.getParameterByName("NodeOnBeat", out float nodeOnBeat);
+        instance.getParameterByName("NodeOnBeat", out float nodeOnBeat);
+        UnityEngine.Debug.Log(instance);
         if (spawning)
         {
             timer -= Time.deltaTime;
