@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{90ba318c-425c-460a-8344-76c185254f09}">
+		<property name="assetPath">
+			<value>Tuba Notes Looped/Tuba G 1 Note Looped.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4266ea1-7586-45b9-9ea1-671227d892a9}</destination>
+		</relationship>
+	</object>
+</objects>

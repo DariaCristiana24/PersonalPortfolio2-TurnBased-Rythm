@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{0ae2c144-9037-4683-845a-a13b9095f32c}">
+		<property name="assetPath">
+			<value>Tuba Notes Looped/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4266ea1-7586-45b9-9ea1-671227d892a9}</destination>
+		</relationship>
+	</object>
+</objects>

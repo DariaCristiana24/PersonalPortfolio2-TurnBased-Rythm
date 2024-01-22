@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5e1d9a9a-718c-4a63-88fd-37f8c278a5a4}">
+		<property name="name">
+			<value>Ability</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e14b3dd0-74ed-4344-ba26-4e8971ff45fe}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c4bbe0cc-6e20-487b-9fad-c5bee5d30b19}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c4bbe0cc-6e20-487b-9fad-c5bee5d30b19}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Horn Blast</value>
+			<value>Shriek</value>
+			<value>Harmonic Slider</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>
