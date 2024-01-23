@@ -103,6 +103,30 @@ MonoBehaviour:
   - Bad
   - Good
   Exists: 1
+--- !u!114 &-7780655801200242020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/PlayNode
+  m_EditorClassIdentifier: 
+  Name: PlayNode
+  StudioPath: parameter:/PlayNode
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2618769926
+    data2: 1322505572
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-6181706057331650014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +232,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-721133749853174887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NodeSpawn
+  m_EditorClassIdentifier: 
+  Path: event:/NodeSpawn
+  Guid:
+    Data1: 1207495295
+    Data2: 1199695743
+    Data3: -2099576687
+    Data4: -965873458
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1247984880210616754}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 250
 --- !u!114 &-692504334824647344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,10 +275,10 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638415381780000000
+  lastModified: 638416076260000000
   FileSizes:
   - Name: Desktop
-    Value: 1300
+    Value: 1380
   Exists: 1
 --- !u!114 &-505463051114768123
 MonoBehaviour:
@@ -281,6 +333,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: -5065510383745487862}
+  - {fileID: 2756906586992316911}
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
@@ -305,6 +358,7 @@ MonoBehaviour:
   - {fileID: -505463051114768123}
   - {fileID: -460206798540058128}
   - {fileID: -1860237282720099164}
+  - {fileID: -721133749853174887}
   EditorParameters:
   - {fileID: 8557635783253931577}
   - {fileID: -2447067156111473014}
@@ -312,11 +366,12 @@ MonoBehaviour:
   - {fileID: -8115524744079114016}
   - {fileID: -8797450968529361415}
   - {fileID: 967656683786610772}
+  - {fileID: -7780655801200242020}
   MasterBanks:
   - {fileID: 4458484561728719250}
   StringsBanks:
   - {fileID: -692504334824647344}
-  cacheTime: 638415381780000000
+  cacheTime: 638416076260000000
   cacheVersion: 131616
 --- !u!114 &967656683786610772
 MonoBehaviour:
@@ -343,6 +398,54 @@ MonoBehaviour:
   Labels:
   - False
   - True
+  Exists: 1
+--- !u!114 &1247984880210616754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NodeSpawn/PlayNode
+  m_EditorClassIdentifier: 
+  Name: PlayNode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2618769926
+    data2: 1322505572
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &2756906586992316911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NodeSpawnTest/PlayNode
+  m_EditorClassIdentifier: 
+  Name: PlayNode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2618769926
+    data2: 1322505572
+  Type: 1
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &4117125365456889440
 MonoBehaviour:
@@ -387,10 +490,10 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638415381780000000
+  lastModified: 638416076260000000
   FileSizes:
   - Name: Desktop
-    Value: 218240
+    Value: 221056
   Exists: 1
 --- !u!114 &8023516786293446955
 MonoBehaviour:

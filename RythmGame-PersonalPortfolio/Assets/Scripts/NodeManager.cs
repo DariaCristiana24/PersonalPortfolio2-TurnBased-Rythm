@@ -25,7 +25,7 @@ public class NodeManager : MonoBehaviour
     [SerializeField]
     private FMODUnity.EventReference onBeatEvent;
     private FMOD.Studio.EventInstance instance;
-    public FMOD.Studio.PARAMETER_ID musicPar;
+   // public FMOD.Studio.PARAMETER_ID musicPar;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +38,14 @@ public class NodeManager : MonoBehaviour
     void Update()
     {
         // FMODUnity.RuntimeManager.StudioSystem.getParameterByName("NodeOnBeat", out float nodeOnBeat);
-       // instance = FMODUnity.RuntimeManager.CreateInstance(onBeatEvent);
-      //  instance.start();
-        instance.getParameterByName("NodeOnBeat", out float nodeOnBeat);
-        UnityEngine.Debug.Log(nodeOnBeat);
+        // instance = FMODUnity.RuntimeManager.CreateInstance(onBeatEvent);
+        //  instance.start()
+       // instance.setParameterByName("NodeOnBeat", 1f);
+       // instance.getParameterByName("NodeOnBeat", out float nodeOnBeat);
+        instance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+
+
+        UnityEngine.Debug.Log(state);
         if (spawning)
         {
             timer -= Time.deltaTime;
