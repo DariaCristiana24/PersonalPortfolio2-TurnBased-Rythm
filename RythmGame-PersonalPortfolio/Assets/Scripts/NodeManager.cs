@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using static UnityEditor.Profiling.RawFrameDataView;
 
 public class NodeManager : MonoBehaviour
 {
@@ -11,7 +10,9 @@ public class NodeManager : MonoBehaviour
     float timer = 0;
 
     [SerializeField]
-    bool spawning = true;
+    bool spawningWithInterval = true;
+    [SerializeField]
+    bool spawningFMOD = true;
 
     [SerializeField]
     List<GameObject> nodePrefabs = new List<GameObject>();
@@ -25,7 +26,11 @@ public class NodeManager : MonoBehaviour
     [SerializeField]
     private FMODUnity.EventReference onBeatEvent;
     private FMOD.Studio.EventInstance instance;
-   // public FMOD.Studio.PARAMETER_ID musicPar;
+
+    bool nodeCanSpawn = true;
+    Renderer ren;
+
+    // public FMOD.Studio.PARAMETER_ID musicPar;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,10 +48,22 @@ public class NodeManager : MonoBehaviour
        // instance.setParameterByName("NodeOnBeat", 1f);
        // instance.getParameterByName("NodeOnBeat", out float nodeOnBeat);
         instance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+        string currentState = state.ToString();
+        if (spawningFMOD)
+        {
+            if (currentState == "PLAYING" && nodeCanSpawn)
+            {
+                spawnNode();
+                nodeCanSpawn = false;
+            }
 
-
-        UnityEngine.Debug.Log(state);
-        if (spawning)
+            if (currentState == "SUSTAINING")
+            {
+                nodeCanSpawn = true;
+            }
+        }
+     //   UnityEngine.Debug.Log(state);
+        if (spawningWithInterval)
         {
             timer -= Time.deltaTime;
             if (timer < 0)
@@ -84,14 +101,22 @@ public class NodeManager : MonoBehaviour
         }
     }
 
-    public void RemoveFirstNode()
+    public IEnumerator RemoveFirstNode()
     {
+       // GameObject objectToDestroy = activeNodes[0].gameObject;
+     //   objectToDestroy.SetActive(false);
         Destroy(activeNodes[0].gameObject);
         activeNodes.RemoveAt(0);
+        yield return new WaitForSecondsRealtime(0.05f);
+       // ren = activeNodes[0].GetComponent<Renderer>();
+       // ren.material.color = Color.white;
+
     }
 
     public int GetNodePos()
     {
         return activeNodes[0].GetComponent<NodeBehaviour>().key;
     }
+
+
 }

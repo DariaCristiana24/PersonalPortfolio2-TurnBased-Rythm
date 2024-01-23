@@ -6,7 +6,14 @@ public class BeatLineBehaviour : MonoBehaviour
 {
     bool nodeOnBeat = false;
 
+
+
     NodeManager nodeManager;
+
+    public enum NodeState {  Nothing, Missed, Perfect, Late, Early };
+
+    NodeState nodeState;
+
     void Start()
     {
         nodeManager = FindObjectOfType<NodeManager>();
@@ -51,6 +58,27 @@ public class BeatLineBehaviour : MonoBehaviour
 
     void checkNode()
     {
+        nodeState = nodeManager.GetFirstNode().GetComponent<NodeBehaviour>().nodeState;
+
+        Debug.Log(nodeState.ToString());
+
+        switch (nodeState)
+        {
+            case NodeState.Missed:
+
+                break;
+            case NodeState.Late:
+
+                break;
+            case NodeState.Early:
+
+                break;
+            case NodeState.Perfect:
+
+                break;
+        }
+
+        /*
         if (nodeOnBeat)
         {
             Debug.Log("good node");
@@ -60,22 +88,22 @@ public class BeatLineBehaviour : MonoBehaviour
         {
             Debug.Log("early node");
         }
-
-        nodeManager.RemoveFirstNode();
+        */
+        StartCoroutine(nodeManager.RemoveFirstNode());
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Node")
         {
-            nodeOnBeat = true;
+           // nodeOnBeat = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        nodeOnBeat = false;
-        Debug.Log("no node");
-        nodeManager.RemoveFirstNode();
+       // nodeOnBeat = false;
+        //Debug.Log("no node");
+       //StartCoroutine(nodeManager.RemoveFirstNode());
     }
 
 }

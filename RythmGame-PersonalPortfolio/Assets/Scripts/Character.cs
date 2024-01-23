@@ -11,6 +11,13 @@ public class Character : MonoBehaviour
     [SerializeField]
     int abilityID = 0;
 
+    [SerializeField]
+    int damage = 0;
+
+
+    [SerializeField]
+    int aoeDamage = 0;
+
     //[SerializeField]
     int bonusMultiplier = 1;
 
@@ -33,6 +40,7 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //add debuff s here
         life -=damage;
         if(life<= 0)
         {
@@ -72,5 +80,15 @@ public class Character : MonoBehaviour
     public int GetMultiplier()
     {
         return bonusMultiplier;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    public int GetAOEDamage()
+    {
+        return aoeDamage;
     }
 }

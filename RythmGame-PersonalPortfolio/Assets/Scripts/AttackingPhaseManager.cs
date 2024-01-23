@@ -13,13 +13,24 @@ public class AttackingPhaseManager : MonoBehaviour
     List<Character> enemies = new List<Character>();
 
     [SerializeField]
-    int damage = 50;
-    [SerializeField]
     int heal = 10;
 
     [SerializeField]
     int timeInBetweenAttacks;
 
+    [SerializeField]
+    float attackBuff = 1.1f;
+
+    struct buff
+    {
+        public float attackBuff;
+        public float defenceBuff;
+    }
+
+    buff PlayerBuff = new buff();
+    buff EnemyBuff = new buff();
+
+    bool attackBuffPlayerAdded = false;
     public enum Attackers
     {
         Idle,
@@ -31,13 +42,15 @@ public class AttackingPhaseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // StartCoroutine(StartAttacking());
+
+        initializeBuffs();
+        // StartCoroutine(StartAttacking());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && attackers == Attackers.Idle)
+        if (Input.GetKeyDown(KeyCode.Z) && attackers == Attackers.Idle)
         {
             StartCoroutine(StartAttacking());
         }
@@ -53,6 +66,10 @@ public class AttackingPhaseManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(timeInBetweenAttacks);
         }
         attackers = Attackers.Enemies;
+        
+        initializeBuffs();
+        addBuffs();
+
         foreach (Character enemy in enemies)
         {
             StartCoroutine(attackSequence(enemy));
@@ -73,24 +90,65 @@ public class AttackingPhaseManager : MonoBehaviour
         character.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
     }
 
-    void doAction(Character character,int actionID, int multiplier)
+    void doAction(Character character,int actionID, float multiplier)
     {
         switch (actionID)
         {
             case 0://attack
                 Debug.Log(character + "attacked");
+                int damage = (int)(character.GetDamage() * multiplier);
                 if (attackers == Attackers.Characters)
                 {
-                    enemies[0].TakeDamage(damage * multiplier);
+                    damage = (int)(damage * PlayerBuff.attackBuff);
+                    enemies[0].TakeDamage(damage);
                 }
                 else if (attackers == Attackers.Enemies)
                 {
-                    characters[0].TakeDamage(damage * multiplier);
+                    characters[0].TakeDamage(damage );
                 }
                 break; 
             case 1: // heal
-                character.Heal(heal * multiplier);
+                character.Heal((int)(heal * multiplier));
                 Debug.Log(character + "healed themselves");
+                break;
+            case 2: // aoe attack
+                int aoeDamage = (int)(character.GetAOEDamage() * multiplier);
+                if (attackers == Attackers.Characters)
+                {
+                    aoeDamage = (int)(aoeDamage * PlayerBuff.attackBuff);
+                    foreach (Character enemy in enemies)
+                    {
+                        enemy.TakeDamage(aoeDamage );
+                    }
+                }
+                else if (attackers == Attackers.Enemies)
+                {
+                    foreach (Character player in characters)
+                    {
+                        player.TakeDamage(aoeDamage );
+                    }
+                }
+                Debug.Log(character + "AOE attacked ");
+                break;
+            case 3: // aoe heal 
+                if (attackers == Attackers.Enemies)
+                {
+                    foreach (Character enemy in enemies)
+                    {
+                        enemy.Heal((int)(heal*multiplier)); ;
+                    }
+                }
+                else if (attackers == Attackers.Characters)
+                {
+                    foreach (Character player in characters)
+                    {
+                        player.Heal((int)(heal* multiplier)); ;
+                    }
+                }
+                Debug.Log(character + "AOE healed ");
+                break;
+            case 4:
+                attackBuffPlayerAdded = true;
                 break;
         }
     }
@@ -111,6 +169,24 @@ public class AttackingPhaseManager : MonoBehaviour
          character.transform.GetChild(0).gameObject.SetActive(false);
     }
 
+    void addBuffs()
+    {
+        if (attackBuffPlayerAdded)
+        {
+            PlayerBuff.attackBuff = attackBuff;
+        }
+
+
+    }
+
+    void initializeBuffs()
+    {
+        PlayerBuff.attackBuff = 1;
+        PlayerBuff.defenceBuff = 1;
+
+        EnemyBuff.attackBuff = 1;
+        EnemyBuff.defenceBuff = 1;
+    }
  
     
 }
