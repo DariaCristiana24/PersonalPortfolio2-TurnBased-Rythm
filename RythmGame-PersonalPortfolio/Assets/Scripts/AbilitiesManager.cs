@@ -45,7 +45,11 @@ public class AbilitiesManager : MonoBehaviour
     bool checkChosenAbiliteis()
     {
         List<int> orderedAbilities = new List<int>(chosenAbilities);
-        orderedAbilities.Sort();   
+        orderedAbilities.Sort();
+        if (orderedAbilities.Contains(0))
+        {
+            return false;
+        }
         for (int i = 0; i < orderedAbilities.Count-1; i++)
         {
             if (orderedAbilities[i] == orderedAbilities[i + 1])

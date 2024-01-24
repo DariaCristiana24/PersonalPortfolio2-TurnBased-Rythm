@@ -275,7 +275,7 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638416076260000000
+  lastModified: 638416078875336050
   FileSizes:
   - Name: Desktop
     Value: 1380
@@ -371,7 +371,7 @@ MonoBehaviour:
   - {fileID: 4458484561728719250}
   StringsBanks:
   - {fileID: -692504334824647344}
-  cacheTime: 638416076260000000
+  cacheTime: 638416078875336050
   cacheVersion: 131616
 --- !u!114 &967656683786610772
 MonoBehaviour:
@@ -490,7 +490,7 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638416076260000000
+  lastModified: 638416078875281001
   FileSizes:
   - Name: Desktop
     Value: 221056

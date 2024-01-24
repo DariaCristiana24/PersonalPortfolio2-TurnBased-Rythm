@@ -20,6 +20,8 @@ public class AttackingPhaseManager : MonoBehaviour
 
     [SerializeField]
     float attackBuff = 1.1f;
+    [SerializeField]
+    float attackDebuff = 0.9f;
 
     struct buff
     {
@@ -31,6 +33,8 @@ public class AttackingPhaseManager : MonoBehaviour
     buff EnemyBuff = new buff();
 
     bool attackBuffPlayerAdded = false;
+    bool attackDebuffPlayerAdded = false;
+    bool attackDebuffEnemyAdded = false;
     public enum Attackers
     {
         Idle,
@@ -60,15 +64,23 @@ public class AttackingPhaseManager : MonoBehaviour
     IEnumerator StartAttacking()
     {
         attackers = Attackers.Characters;
+
+        addPlayerBuffs(); //debuffs cause by enemies (attack and defence)
         foreach (Character character in characters )
         {
             StartCoroutine(attackSequence(character));
             yield return new WaitForSecondsRealtime(timeInBetweenAttacks);
         }
         attackers = Attackers.Enemies;
-        
-        initializeBuffs();
-        addBuffs();
+
+        PlayerBuff.attackBuff = 1;
+        PlayerBuff.defenceBuff = 1;
+        addPlayerBuffs(); //buffs caasted 
+
+
+
+
+        addEnemyBuffs();
 
         foreach (Character enemy in enemies)
         {
@@ -76,6 +88,13 @@ public class AttackingPhaseManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(timeInBetweenAttacks);
 
         }
+
+        EnemyBuff.attackBuff = 1;
+        EnemyBuff.defenceBuff = 1;
+        addEnemyBuffs();
+
+
+
         attackers = Attackers.Idle;
 
     }
@@ -104,6 +123,8 @@ public class AttackingPhaseManager : MonoBehaviour
                 }
                 else if (attackers == Attackers.Enemies)
                 {
+                    
+                    damage = (int)(damage * EnemyBuff.attackBuff);
                     characters[0].TakeDamage(damage );
                 }
                 break; 
@@ -123,6 +144,7 @@ public class AttackingPhaseManager : MonoBehaviour
                 }
                 else if (attackers == Attackers.Enemies)
                 {
+                    aoeDamage = (int)(aoeDamage * EnemyBuff.attackBuff);
                     foreach (Character player in characters)
                     {
                         player.TakeDamage(aoeDamage );
@@ -147,9 +169,36 @@ public class AttackingPhaseManager : MonoBehaviour
                 }
                 Debug.Log(character + "AOE healed ");
                 break;
-            case 4:
-                attackBuffPlayerAdded = true;
+
+            case 4: //attack debuff
+                if (attackers == Attackers.Characters)
+                {
+                    attackDebuffEnemyAdded = true;
+                }
+                else if (attackers == Attackers.Enemies)
+                {
+                    attackDebuffPlayerAdded = true;
+                }
+
                 break;
+            case 5: //attackbuff
+                if (attackers == Attackers.Characters)
+                {
+                    attackBuffPlayerAdded = true;
+                }
+                else if (attackers == Attackers.Enemies)
+                {
+                    //attackBuffEnemyAdded
+                }
+
+                break;
+            case 6: //defence buff
+                //
+                break;
+            case 7://defence debuff
+                //
+                break;
+
         }
     }
 
@@ -157,7 +206,6 @@ public class AttackingPhaseManager : MonoBehaviour
     {
         if (isEnemy)
         {
-
             enemies.Remove(character);
         }
         else
@@ -169,24 +217,47 @@ public class AttackingPhaseManager : MonoBehaviour
          character.transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    void addBuffs()
+    void addPlayerBuffs()
     {
-        if (attackBuffPlayerAdded)
+        if (attackBuffPlayerAdded && attackDebuffPlayerAdded) 
         {
-            PlayerBuff.attackBuff = attackBuff;
+            PlayerBuff.attackBuff = 1;
+        }
+        else
+        {
+            if (attackBuffPlayerAdded)
+            {
+                PlayerBuff.attackBuff = attackBuff;
+            }
+            if (attackDebuffPlayerAdded)
+            {
+                PlayerBuff.attackBuff = attackDebuff;
+            }
         }
 
+        attackBuffPlayerAdded = false;
+        attackDebuffPlayerAdded = false;
 
+    }
+
+    void addEnemyBuffs()
+    {
+        if (attackDebuffEnemyAdded)
+        {
+            EnemyBuff.attackBuff = attackDebuff;
+        }
+        //attackBuffEnemyAdded = false;
+        attackDebuffEnemyAdded = false;
     }
 
     void initializeBuffs()
     {
         PlayerBuff.attackBuff = 1;
         PlayerBuff.defenceBuff = 1;
-
         EnemyBuff.attackBuff = 1;
-        EnemyBuff.defenceBuff = 1;
+        EnemyBuff.defenceBuff = 1; ;
+
     }
- 
-    
+
+
 }

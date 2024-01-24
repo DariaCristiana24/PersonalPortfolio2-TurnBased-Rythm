@@ -27,6 +27,11 @@ public class NodeManager : MonoBehaviour
     private FMODUnity.EventReference onBeatEvent;
     private FMOD.Studio.EventInstance instance;
 
+
+    [SerializeField]
+    private FMODUnity.EventReference onBeatEventBig;
+    private FMOD.Studio.EventInstance instanceBig;
+
     bool nodeCanSpawn = true;
     Renderer ren;
 
@@ -36,6 +41,10 @@ public class NodeManager : MonoBehaviour
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(onBeatEvent);
         instance.start();
+
+        instanceBig = FMODUnity.RuntimeManager.CreateInstance(onBeatEventBig);
+
+
         timer = timeBetween;
     }
 
@@ -77,6 +86,13 @@ public class NodeManager : MonoBehaviour
          paramter.set(false)
         }
         */
+
+        instanceBig.getPlaybackState(out  FMOD.Studio.PLAYBACK_STATE stateTrack);
+         if (stateTrack.ToString() == "STOPPED")
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
+        }
+
     }
 
     void spawnNode()
@@ -116,6 +132,13 @@ public class NodeManager : MonoBehaviour
     public int GetNodePos()
     {
         return activeNodes[0].GetComponent<NodeBehaviour>().key;
+    }
+
+    public void StartSpawning()
+    {
+        spawningFMOD = true;
+        instanceBig.start();
+
     }
 
 

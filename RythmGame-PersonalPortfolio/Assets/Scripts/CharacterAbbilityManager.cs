@@ -13,12 +13,12 @@ public class CharacterAbbilityManager : MonoBehaviour
      int chosenColor;
 
     AbilitiesManager abilitiesManager;
-    HarmonizingManager hairmonizingManager;
+
     // Start is called before the first frame update
     void Start()
     {
         abilitiesManager = FindObjectOfType<AbilitiesManager>();
-        hairmonizingManager = FindObjectOfType<HarmonizingManager>();
+
     }
 
     // Update is called once per frame
