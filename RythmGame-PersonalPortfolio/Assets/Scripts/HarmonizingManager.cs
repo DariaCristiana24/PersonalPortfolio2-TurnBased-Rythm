@@ -13,7 +13,8 @@ public class HarmonizingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        clockwise = Random.Range(0, 2) > 0.5f;
+        UIManager.Instance.SetClockwise(clockwise);
     }
 
     // Update is called once per frame
@@ -122,6 +123,12 @@ public class HarmonizingManager : MonoBehaviour
 
             return _abilities;
 
+    }
+
+    public void ResetHarmonizing()
+    {
+        clockwise = Random.Range(0, 2) > 0.5f;
+        UIManager.Instance.SetClockwise(clockwise);
     }
 
 }

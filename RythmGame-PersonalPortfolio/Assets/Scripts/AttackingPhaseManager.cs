@@ -8,7 +8,7 @@ using UnityEngine.TextCore.Text;
 public class AttackingPhaseManager : MonoBehaviour
 {   
     [SerializeField]
-    List <Character> characters = new List<Character>();
+   public List <Character> characters = new List<Character>();
     [SerializeField]
     List<Character> enemies = new List<Character>();
 
@@ -76,6 +76,7 @@ public class AttackingPhaseManager : MonoBehaviour
         PlayerBuff.attackBuff = 1;
         PlayerBuff.defenceBuff = 1;
         addPlayerBuffs(); //buffs caasted 
+
 
 
 
@@ -222,16 +223,19 @@ public class AttackingPhaseManager : MonoBehaviour
         if (attackBuffPlayerAdded && attackDebuffPlayerAdded) 
         {
             PlayerBuff.attackBuff = 1;
+            UIManager.Instance.NoShowAttackBuff();
         }
         else
         {
             if (attackBuffPlayerAdded)
             {
                 PlayerBuff.attackBuff = attackBuff;
+                UIManager.Instance.ShowAttackBuff(true);
             }
             if (attackDebuffPlayerAdded)
             {
                 PlayerBuff.attackBuff = attackDebuff;
+                UIManager.Instance.ShowAttackBuff(false);
             }
         }
 

@@ -33,7 +33,10 @@ public class NodeManager : MonoBehaviour
     private FMOD.Studio.EventInstance instanceBig;
 
     bool nodeCanSpawn = true;
-    Renderer ren;
+
+    int characterTrackIndex = 0;
+    AttackingPhaseManager attackingPhaseManager;
+    BeatLineBehaviour beatLineBehaviour;
 
     // public FMOD.Studio.PARAMETER_ID musicPar;
     // Start is called before the first frame update
@@ -46,6 +49,8 @@ public class NodeManager : MonoBehaviour
 
 
         timer = timeBetween;
+        attackingPhaseManager = FindObjectOfType<AttackingPhaseManager>();
+        beatLineBehaviour = FindObjectOfType<BeatLineBehaviour>();
     }
 
     // Update is called once per frame
@@ -88,9 +93,23 @@ public class NodeManager : MonoBehaviour
         */
 
         instanceBig.getPlaybackState(out  FMOD.Studio.PLAYBACK_STATE stateTrack);
-         if (stateTrack.ToString() == "STOPPED")
+        if (Input.GetKeyDown(KeyCode.B) /*stateTrack.ToString() == "STOPPED"*/)
         {
             GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
+            spawningWithInterval = false;
+            spawningFMOD = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.N)) //stateTrack.ToString() == "SUSTAINING") // in between tracks per player 
+        {
+            if (characterTrackIndex < attackingPhaseManager.characters.Count)
+            {
+                attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
+                Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
+                characterTrackIndex++;
+                beatLineBehaviour.SetRhythmScore(0);
+            }
+
         }
 
     }
@@ -119,13 +138,9 @@ public class NodeManager : MonoBehaviour
 
     public IEnumerator RemoveFirstNode()
     {
-       // GameObject objectToDestroy = activeNodes[0].gameObject;
-     //   objectToDestroy.SetActive(false);
         Destroy(activeNodes[0].gameObject);
         activeNodes.RemoveAt(0);
         yield return new WaitForSecondsRealtime(0.05f);
-       // ren = activeNodes[0].GetComponent<Renderer>();
-       // ren.material.color = Color.white;
 
     }
 

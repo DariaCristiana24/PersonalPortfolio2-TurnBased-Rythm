@@ -7,12 +7,11 @@ public class NodeBehaviour : MonoBehaviour
     // Start is called before the first frame update
 
     public int key;
-
-    NodeManager nodeManager;
-    public BeatLineBehaviour.NodeState nodeState = BeatLineBehaviour.NodeState.Nothing;
+    BeatLineBehaviour beatLineBehaviour;
+    public BeatLineBehaviour.NodeState nodeState = BeatLineBehaviour.NodeState.Missed;
     void Start()
     {
-        nodeManager = FindObjectOfType<NodeManager>();
+        beatLineBehaviour = FindObjectOfType<BeatLineBehaviour>();
 
     }
 
@@ -44,11 +43,9 @@ public class NodeBehaviour : MonoBehaviour
         if (other.tag == "LateBeatLine")
         {
             nodeState = BeatLineBehaviour.NodeState.Missed;
-            Debug.Log(nodeState.ToString());
-            StartCoroutine(nodeManager.RemoveFirstNode());
+            beatLineBehaviour.CheckFirstNode();
         }
-        // nodeOnBeat = false;
-        //Debug.Log("no node");
+
 
   
     }

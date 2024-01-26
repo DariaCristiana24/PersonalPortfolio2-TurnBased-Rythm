@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class BeatLineBehaviour : MonoBehaviour
 {
-    bool nodeOnBeat = false;
-
-
 
     NodeManager nodeManager;
 
-    public enum NodeState {  Nothing, Missed, Perfect, Late, Early };
+    public enum NodeState { Missed, Perfect, Late, Early };
 
     NodeState nodeState;
+    float scoreRhythm = 0;
 
+    [SerializeField]
+    float scorePerfect = 100;
+    [SerializeField]
+    float scoreEarly = 10;
+    [SerializeField]
+    float scoreLate = 10;
+    [SerializeField]
+    float scoreMissed = -10;
+    //divide 1000 for multiplier
     void Start()
     {
         nodeManager = FindObjectOfType<NodeManager>();
@@ -29,25 +36,25 @@ public class BeatLineBehaviour : MonoBehaviour
                 case 0:
                     if (Input.GetKeyDown(KeyCode.A))
                     {
-                        checkNode();
+                        CheckFirstNode();
                     }
                     break;
                 case 1:
                     if (Input.GetKeyDown(KeyCode.W))
                     {
-                        checkNode();
+                        CheckFirstNode();
                     }
                     break;
                 case 2:
                     if (Input.GetKeyDown(KeyCode.S))
                     {
-                        checkNode();
+                        CheckFirstNode();
                     }
                     break;
                 case 3:
                     if (Input.GetKeyDown(KeyCode.D))
                     {
-                        checkNode();
+                        CheckFirstNode();
                     }
                     break;
 
@@ -56,54 +63,50 @@ public class BeatLineBehaviour : MonoBehaviour
         }
     }
 
-    void checkNode()
+    public void CheckFirstNode()
     {
         nodeState = nodeManager.GetFirstNode().GetComponent<NodeBehaviour>().nodeState;
-
-        Debug.Log(nodeState.ToString());
-
-        switch (nodeState)
-        {
-            case NodeState.Missed:
-
-                break;
-            case NodeState.Late:
-
-                break;
-            case NodeState.Early:
-
-                break;
-            case NodeState.Perfect:
-
-                break;
-        }
-
-        /*
-        if (nodeOnBeat)
-        {
-            Debug.Log("good node");
-            nodeOnBeat = false;
-        }
-        else
-        {
-            Debug.Log("early node");
-        }
-        */
+        UIManager.Instance.setRhythmFeedBack(nodeState.ToString());
+        calculateScore(nodeState);
         StartCoroutine(nodeManager.RemoveFirstNode());
     }
-    private void OnTriggerStay(Collider other)
+
+    void calculateScore(NodeState state)
     {
-        if (other.tag == "Node")
+        float valueToAdd = 0;
+        switch (state)
         {
-           // nodeOnBeat = true;
+            case NodeState.Missed:
+                if (scoreRhythm >= 10)
+                {
+                    valueToAdd = scoreMissed;
+                }
+                break;
+            case NodeState.Late:
+                valueToAdd = scoreLate;
+                break;
+            case NodeState.Early:
+                valueToAdd = scoreEarly;
+                break;
+            case NodeState.Perfect:
+                valueToAdd = scorePerfect;
+                break;
         }
+
+        scoreRhythm += valueToAdd;
+
+        UIManager.Instance.setRhythmScore(scoreRhythm);
     }
 
-    private void OnTriggerExit(Collider other)
+    public float GetRhythmScore()
     {
-       // nodeOnBeat = false;
-        //Debug.Log("no node");
-       //StartCoroutine(nodeManager.RemoveFirstNode());
+        return scoreRhythm;
     }
+
+    public void SetRhythmScore(float score)
+    {
+         scoreRhythm = score;
+    }
+
 
 }

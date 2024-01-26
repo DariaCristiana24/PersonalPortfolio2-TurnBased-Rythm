@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState State;
     NodeManager nodeManager;
+    HarmonizingManager harmonizingManager;
 
     public enum GameState { 
         Harmonizing,
@@ -18,9 +19,10 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        UpdateGameState(GameState.Harmonizing);
+       // UpdateGameState(GameState.Harmonizing);
 
         nodeManager = FindObjectOfType<NodeManager>();
+        harmonizingManager = FindObjectOfType<HarmonizingManager>();
     }
 
     // Update is called once per frame
@@ -31,17 +33,22 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameState newState)
     {
-        State = newState;
-        Debug.Log(State);
-        switch (State)
+        if (State != newState)
         {
-            case GameState.Harmonizing:
-                break;
-            case GameState.Rhythm:
-                nodeManager.StartSpawning();
-                break;
-            case GameState.Battle: 
-                break;
+            State = newState;
+            Debug.Log(State);
+            switch (State)
+            {
+                case GameState.Harmonizing:
+                    UIManager.Instance.EnableHarmonies();
+                    harmonizingManager.ResetHarmonizing();
+                    break;
+                case GameState.Rhythm:
+                    nodeManager.StartSpawning();
+                    break;
+                case GameState.Battle:
+                    break;
+            }
         }
     }
 

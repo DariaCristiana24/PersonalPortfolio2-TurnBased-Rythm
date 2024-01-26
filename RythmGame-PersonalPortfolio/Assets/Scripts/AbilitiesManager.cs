@@ -11,9 +11,11 @@ public class AbilitiesManager : MonoBehaviour
     List<int> harmonizedAbilities = new List<int>();
 
     HarmonizingManager harmonizingManager;
+    AttackingPhaseManager attackingPhaseManager;
     void Start()
     {
         harmonizingManager = FindObjectOfType<HarmonizingManager>();
+        attackingPhaseManager = FindObjectOfType<AttackingPhaseManager>();
     }
 
     // Update is called once per frame
@@ -31,14 +33,29 @@ public class AbilitiesManager : MonoBehaviour
     {
         harmonizedAbilities = new List<int>( chosenAbilities);
 
-        if (checkChosenAbiliteis())
+        if (!chosenAbilities.Contains(0))
         {
-            harmonizedAbilities= harmonizingManager.HarmonizedAbilities(harmonizedAbilities);
-            GameManager.Instance.UpdateGameState(GameManager.GameState.Rhythm);
-        }
-        else
-        {
-            Debug.Log("double ability error");
+            if (checkChosenAbiliteis())
+            {
+                harmonizedAbilities = harmonizingManager.HarmonizedAbilities(harmonizedAbilities);
+                GameManager.Instance.UpdateGameState(GameManager.GameState.Rhythm);
+                UIManager.Instance.DisableHarmonies();
+                for(int i=0; i<harmonizedAbilities.Count; i++)
+                {
+                    attackingPhaseManager.characters[i].SetHarmonized(true);
+                   
+
+                }
+                for(int i = harmonizedAbilities.Count; i<chosenAbilities.Count;i++)
+                {
+                    attackingPhaseManager.characters[i].SetHarmonized(false);
+
+                }
+            }
+            else
+            {
+                UIManager.Instance.DoubleColorWarning();
+            }
         }
     }
 
@@ -46,10 +63,7 @@ public class AbilitiesManager : MonoBehaviour
     {
         List<int> orderedAbilities = new List<int>(chosenAbilities);
         orderedAbilities.Sort();
-        if (orderedAbilities.Contains(0))
-        {
-            return false;
-        }
+
         for (int i = 0; i < orderedAbilities.Count-1; i++)
         {
             if (orderedAbilities[i] == orderedAbilities[i + 1])
