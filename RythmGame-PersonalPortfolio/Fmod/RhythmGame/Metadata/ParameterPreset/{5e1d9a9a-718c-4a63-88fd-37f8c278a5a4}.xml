@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="ParameterPreset" id="{5e1d9a9a-718c-4a63-88fd-37f8c278a5a4}">
 		<property name="name">
-			<value>Ability</value>
+			<value>Ability1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{e14b3dd0-74ed-4344-ba26-4e8971ff45fe}</destination>
@@ -19,12 +19,9 @@
 			<value>3</value>
 		</property>
 		<property name="enumerationLabels">
-			<value>Horn Blast</value>
-			<value>Shriek</value>
-			<value>Harmonic Slider</value>
-		</property>
-		<property name="isGlobal">
-			<value>true</value>
+			<value>Tuba Tremor</value>
+			<value>Taunting Tuba</value>
+			<value>Brass Blight</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>

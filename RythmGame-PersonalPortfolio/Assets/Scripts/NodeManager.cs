@@ -25,6 +25,7 @@ public class NodeManager : MonoBehaviour
     [SerializeField]
     private FMODUnity.EventReference onBeatEvent;
     private FMOD.Studio.EventInstance instance;
+
    // public FMOD.Studio.PARAMETER_ID musicPar;
     // Start is called before the first frame update
     void Start()
