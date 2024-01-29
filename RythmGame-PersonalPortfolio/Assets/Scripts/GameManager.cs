@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,13 +46,16 @@ public class GameManager : MonoBehaviour
             switch (State)
             {
                 case GameState.Harmonizing:
+                    nodeManager.instanceBig.setParameterByName("Mode", 0);
                     UIManager.Instance.EnableHarmonies();
                     harmonizingManager.ResetHarmonizing();
                     break;
                 case GameState.Rhythm:
+                    nodeManager.instanceBig.setParameterByName("Mode", 1);
                     nodeManager.StartSpawning();
                     break;
                 case GameState.Battle:
+                    nodeManager.instanceBig.setParameterByName("Mode", 2);
                     StartCoroutine(attackingPhaseManager.StartAttacking());
                     break;
                 case GameState.GameFinished:

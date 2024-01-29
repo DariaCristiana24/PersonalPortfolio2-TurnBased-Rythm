@@ -31,7 +31,7 @@ public class NodeManager : MonoBehaviour
 
     [SerializeField]
     private FMODUnity.EventReference onBeatEventBig;
-    private FMOD.Studio.EventInstance instanceBig;
+    public FMOD.Studio.EventInstance instanceBig;
 
     bool nodeCanSpawn = true;
 

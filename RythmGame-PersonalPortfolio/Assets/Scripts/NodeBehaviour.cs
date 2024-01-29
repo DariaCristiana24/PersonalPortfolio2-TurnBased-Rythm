@@ -18,7 +18,7 @@ public class NodeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime *5);
+        transform.Translate(Vector3.left * Time.deltaTime * 4.5f);
     }
 
     private void OnTriggerEnter(Collider other)
