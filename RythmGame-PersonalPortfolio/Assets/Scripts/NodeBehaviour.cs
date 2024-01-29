@@ -9,6 +9,9 @@ public class NodeBehaviour : MonoBehaviour
     public int key;
     BeatLineBehaviour beatLineBehaviour;
     public BeatLineBehaviour.NodeState nodeState = BeatLineBehaviour.NodeState.Missed;
+
+    [SerializeField]
+    float fmodDelay = 4.5f;
     void Start()
     {
         beatLineBehaviour = FindObjectOfType<BeatLineBehaviour>();
@@ -18,7 +21,7 @@ public class NodeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * 4.5f);
+        transform.Translate(Vector3.left * Time.deltaTime * fmodDelay);
     }
 
     private void OnTriggerEnter(Collider other)
