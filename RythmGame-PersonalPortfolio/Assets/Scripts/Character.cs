@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     [SerializeField]
     int aoeDamage = 0;
 
-    //[SerializeField]
+    [SerializeField]
     float bonusMultiplier = 1;
 
     [SerializeField]
@@ -80,7 +80,7 @@ public class Character : MonoBehaviour
 
     public void SetMultiplier(float multiplier)
     {
-        if (multiplier > 0)
+        if (multiplier > -1)
         {
             bonusMultiplier = multiplier + 1; // + 1 because we dont the multiplier to decrease our number // 
 
@@ -105,6 +105,10 @@ public class Character : MonoBehaviour
     public int GetDamage()
     {
         return damage;
+    }
+    public int GetLife()
+    {
+        return life;
     }
 
     public int GetAOEDamage()

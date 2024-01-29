@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     public GameState State;
     NodeManager nodeManager;
     HarmonizingManager harmonizingManager;
+    AttackingPhaseManager attackingPhaseManager;
 
     public enum GameState { 
         Harmonizing,
         Rhythm,
-        Battle
+        Battle,
+        GameFinished
     }
 
     // Start is called before the first frame update
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
 
         nodeManager = FindObjectOfType<NodeManager>();
         harmonizingManager = FindObjectOfType<HarmonizingManager>();
+        attackingPhaseManager = FindObjectOfType<AttackingPhaseManager>();
+
+        
     }
 
     // Update is called once per frame
@@ -47,6 +52,10 @@ public class GameManager : MonoBehaviour
                     nodeManager.StartSpawning();
                     break;
                 case GameState.Battle:
+                    StartCoroutine(attackingPhaseManager.StartAttacking());
+                    break;
+                case GameState.GameFinished:
+                    UIManager.Instance.EnableFinishScreen(attackingPhaseManager.GetcharactersWon());
                     break;
             }
         }

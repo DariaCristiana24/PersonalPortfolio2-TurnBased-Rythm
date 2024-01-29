@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using FMOD.Studio;
 
 public class NodeManager : MonoBehaviour
 {
@@ -91,6 +92,8 @@ public class NodeManager : MonoBehaviour
          paramter.set(false)
         }
         */
+        instanceBig.getTimelinePosition(out int pos);
+        Debug.Log(pos);
 
         instanceBig.getPlaybackState(out  FMOD.Studio.PLAYBACK_STATE stateTrack);
         if (Input.GetKeyDown(KeyCode.B) /*stateTrack.ToString() == "STOPPED"*/)
@@ -98,16 +101,30 @@ public class NodeManager : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
             spawningWithInterval = false;
             spawningFMOD = false;
+            characterTrackIndex = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.N)) //stateTrack.ToString() == "SUSTAINING") // in between tracks per player 
+        if (Input.GetKeyDown(KeyCode.N) && GameManager.Instance.State == GameManager.GameState.Rhythm) //stateTrack.ToString() == "SUSTAINING") // in between tracks per player 
         {
-            if (characterTrackIndex < attackingPhaseManager.characters.Count)
+            if (characterTrackIndex < attackingPhaseManager.characters.Count-1)
             {
                 attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
                 Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
                 characterTrackIndex++;
                 beatLineBehaviour.SetRhythmScore(0);
+            }
+            else
+            {
+                attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
+                Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
+                characterTrackIndex++;
+                beatLineBehaviour.SetRhythmScore(0);
+                characterTrackIndex = 0;
+                //instanceBig.stop();
+                instanceBig.stop(new FMOD.Studio.STOP_MODE());
+                GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
+                spawningWithInterval = false;
+                spawningFMOD = false;
             }
 
         }

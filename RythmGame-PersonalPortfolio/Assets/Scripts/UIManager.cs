@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -30,6 +30,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     List<GameObject> harmonies = new List<GameObject>();
+
+    [SerializeField]
+    GameObject finishScreen;
+    [SerializeField]
+    TextMeshProUGUI finishScreenText;
 
 
 
@@ -97,8 +102,14 @@ public class UIManager : MonoBehaviour
     public void UpdateMultiplier( float multiplier, int i)
     {
 
-        multipliers[i].SetText(multiplier.ToString() + "x");
-
+        if (multiplier == 0)
+        {
+            multipliers[i].SetText("DEAD");
+        }
+        else
+        {
+            multipliers[i].SetText(multiplier.ToString() + "x");
+        }
 
     }
 
@@ -125,6 +136,19 @@ public class UIManager : MonoBehaviour
     {
         buffAttack.SetActive(false);
         debuffAttack.SetActive(false);
+    }
+
+    public void EnableFinishScreen(bool charactersWon)
+    {
+        finishScreen.SetActive(true);
+        if (charactersWon)
+        {
+            finishScreenText.SetText("You Win! :D");
+        }
+        else
+        {
+            finishScreenText.SetText("You Lose! >:|");
+        }
     }
 
 

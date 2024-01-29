@@ -33,7 +33,7 @@ public class AbilitiesManager : MonoBehaviour
     {
         harmonizedAbilities = new List<int>( chosenAbilities);
 
-        if (!chosenAbilities.Contains(0))
+        if (!chosenAbilities.Contains(0) && GameManager.Instance.State == GameManager.GameState.Harmonizing)
         {
             if (checkChosenAbiliteis())
             {
@@ -42,15 +42,20 @@ public class AbilitiesManager : MonoBehaviour
                 UIManager.Instance.DisableHarmonies();
                 for(int i=0; i<harmonizedAbilities.Count; i++)
                 {
-                    attackingPhaseManager.characters[i].SetHarmonized(true);
-                   
-
+                    if (i - attackingPhaseManager.GetDeadCharacters() >= 0)
+                    {
+                        attackingPhaseManager.characters[i - attackingPhaseManager.GetDeadCharacters()].SetHarmonized(true);
+                    }
+                            
                 }
-                for(int i = harmonizedAbilities.Count; i<chosenAbilities.Count;i++)
+                /*for(int i = harmonizedAbilities.Count; i<chosenAbilities.Count;i++)
                 {
-                    attackingPhaseManager.characters[i].SetHarmonized(false);
+                    if (attackingPhaseManager.characters[i])
+                    {
+                        attackingPhaseManager.characters[i].SetHarmonized(false);
+                    }
 
-                }
+                }*/
             }
             else
             {
@@ -72,6 +77,14 @@ public class AbilitiesManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void resetAbilities()
+    {
+        for(int i =0; i< chosenAbilities.Count; i++)
+        {
+            chosenAbilities[i] = 0;
+        }
     }
 
 }

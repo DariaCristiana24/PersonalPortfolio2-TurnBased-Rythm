@@ -16,7 +16,7 @@ public class AttackingPhaseManager : MonoBehaviour
     int heal = 10;
 
     [SerializeField]
-    int timeInBetweenAttacks;
+    float timeInBetweenAttacks;
 
     [SerializeField]
     float attackBuff = 1.1f;
@@ -35,6 +35,12 @@ public class AttackingPhaseManager : MonoBehaviour
     bool attackBuffPlayerAdded = false;
     bool attackDebuffPlayerAdded = false;
     bool attackDebuffEnemyAdded = false;
+    bool attackBuffEnemyAdded = false;
+
+    int deadCharacters = 0;
+    int deadEnemies = 0;
+
+    bool charactersWon =false;
     public enum Attackers
     {
         Idle,
@@ -54,14 +60,14 @@ public class AttackingPhaseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && attackers == Attackers.Idle)
+      /*  if (Input.GetKeyDown(KeyCode.Z) && attackers == Attackers.Idle)
         {
             StartCoroutine(StartAttacking());
-        }
+        }*/
     }
 
 
-    IEnumerator StartAttacking()
+    public IEnumerator StartAttacking()
     {
         attackers = Attackers.Characters;
 
@@ -77,6 +83,15 @@ public class AttackingPhaseManager : MonoBehaviour
         PlayerBuff.defenceBuff = 1;
         addPlayerBuffs(); //buffs caasted 
 
+        /*
+
+        foreach (Character enemy in enemies)
+        {
+            if (enemy.GetLife() <= 0)
+            {
+                CharacterKilled(enemy, true);
+            }
+        }*/
 
 
 
@@ -94,7 +109,35 @@ public class AttackingPhaseManager : MonoBehaviour
         EnemyBuff.defenceBuff = 1;
         addEnemyBuffs();
 
+        /*
+        foreach (Character character in characters)
+        {
+            if (character.GetLife() <= 0)
+            {
+                CharacterKilled(character, false);
+            }
+        }   
+        */
 
+
+        GameManager.Instance.UpdateGameState(GameManager.GameState.Harmonizing);
+
+        foreach (Character character in characters)
+        {
+            character.SetHarmonized(false);
+            character.SetMultiplier(0);
+        }
+        foreach (Character enemy in enemies)
+        {
+            enemy.SetHarmonized(false);
+            enemy.SetMultiplier(0);
+        }
+        //resterr harmony and multipliers
+        for (int i=0; i < deadCharacters;i++)
+        { 
+           UIManager.Instance.ShowHarmony(false, i);
+           UIManager.Instance.UpdateMultiplier(0, i);
+        }
 
         attackers = Attackers.Idle;
 
@@ -105,7 +148,7 @@ public class AttackingPhaseManager : MonoBehaviour
         doAction(character, character.GetAbility(), character.GetMultiplier());
         character.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         character.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
     }
@@ -138,17 +181,19 @@ public class AttackingPhaseManager : MonoBehaviour
                 if (attackers == Attackers.Characters)
                 {
                     aoeDamage = (int)(aoeDamage * PlayerBuff.attackBuff);
-                    foreach (Character enemy in enemies)
+                    //foreach (Character enemy in enemies)
+                    for(int j = 0; j<enemies.Count; j++)
                     {
-                        enemy.TakeDamage(aoeDamage );
+                        enemies[j].TakeDamage(aoeDamage);
+
                     }
                 }
                 else if (attackers == Attackers.Enemies)
                 {
                     aoeDamage = (int)(aoeDamage * EnemyBuff.attackBuff);
-                    foreach (Character player in characters)
+                    for (int j = 0; j < characters.Count; j++)
                     {
-                        player.TakeDamage(aoeDamage );
+                        characters[j].TakeDamage(aoeDamage );
                     }
                 }
                 Debug.Log(character + "AOE attacked ");
@@ -189,18 +234,13 @@ public class AttackingPhaseManager : MonoBehaviour
                 }
                 else if (attackers == Attackers.Enemies)
                 {
-                    //attackBuffEnemyAdded
+                    attackBuffEnemyAdded = true;
                 }
 
                 break;
-            case 6: //defence buff
-                //
-                break;
-            case 7://defence debuff
-                //
-                break;
 
         }
+
     }
 
     public void CharacterKilled(Character character, bool isEnemy)
@@ -208,14 +248,27 @@ public class AttackingPhaseManager : MonoBehaviour
         if (isEnemy)
         {
             enemies.Remove(character);
+            deadEnemies++;
         }
         else
         {
             characters.Remove(character);
+            deadCharacters++;
         }
 
-       // Destroy(character.transform.GetChild(0).gameObject);
          character.transform.GetChild(0).gameObject.SetActive(false);
+        if (deadCharacters == 4 || deadEnemies == 4)
+        {
+            if (deadCharacters == 4)
+            {
+                charactersWon = false;
+            }
+            else
+            {
+                charactersWon = true;
+            }
+            GameManager.Instance.UpdateGameState(GameManager.GameState.GameFinished);
+        }
     }
 
     void addPlayerBuffs()
@@ -246,11 +299,23 @@ public class AttackingPhaseManager : MonoBehaviour
 
     void addEnemyBuffs()
     {
-        if (attackDebuffEnemyAdded)
+        if (attackDebuffEnemyAdded && attackBuffEnemyAdded)
         {
-            EnemyBuff.attackBuff = attackDebuff;
+            EnemyBuff.attackBuff = 1;
         }
-        //attackBuffEnemyAdded = false;
+        else
+        {
+            if (attackBuffEnemyAdded)
+            {
+                EnemyBuff.attackBuff = attackBuff;
+            }
+            if (attackDebuffEnemyAdded)
+            {
+                EnemyBuff.attackBuff = attackDebuff;
+            }
+        }
+
+        attackBuffEnemyAdded = false;
         attackDebuffEnemyAdded = false;
     }
 
@@ -261,6 +326,16 @@ public class AttackingPhaseManager : MonoBehaviour
         EnemyBuff.attackBuff = 1;
         EnemyBuff.defenceBuff = 1; ;
 
+    }
+
+    public int GetDeadCharacters()
+    {
+        return deadCharacters;
+    }
+
+    public bool GetcharactersWon()
+    {
+        return charactersWon;
     }
 
 

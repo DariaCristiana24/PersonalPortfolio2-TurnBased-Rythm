@@ -10,11 +10,14 @@ public class HarmonizingManager : MonoBehaviour
 
     [SerializeField]
     bool clockwise;
+
+    AbilitiesManager abilitiesManager;
     // Start is called before the first frame update
     void Start()
     {
         clockwise = Random.Range(0, 2) > 0.5f;
         UIManager.Instance.SetClockwise(clockwise);
+        abilitiesManager = FindObjectOfType<AbilitiesManager>();
     }
 
     // Update is called once per frame
@@ -129,6 +132,7 @@ public class HarmonizingManager : MonoBehaviour
     {
         clockwise = Random.Range(0, 2) > 0.5f;
         UIManager.Instance.SetClockwise(clockwise);
+        abilitiesManager.resetAbilities();
     }
 
 }
