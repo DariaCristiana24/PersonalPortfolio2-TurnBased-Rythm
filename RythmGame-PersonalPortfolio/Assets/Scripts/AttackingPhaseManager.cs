@@ -158,23 +158,25 @@ public class AttackingPhaseManager : MonoBehaviour
         switch (actionID)
         {
             case 0://attack
-                Debug.Log(character + "attacked");
+                //Debug.Log(character + "attacked");
+                UIManager.Instance.DoBattleFeedback(character.name + " attacked");
                 int damage = (int)(character.GetDamage() * multiplier);
                 if (attackers == Attackers.Characters)
                 {
                     damage = (int)(damage * PlayerBuff.attackBuff);
-                    enemies[0].TakeDamage(damage);
+                    if(deadEnemies<4) enemies[0].TakeDamage(damage);
                 }
                 else if (attackers == Attackers.Enemies)
                 {
                     
                     damage = (int)(damage * EnemyBuff.attackBuff);
-                    characters[0].TakeDamage(damage );
+                    if (deadCharacters < 4) characters[0].TakeDamage(damage );
                 }
                 break; 
             case 1: // heal
                 character.Heal((int)(heal * multiplier));
-                Debug.Log(character + "healed themselves");
+                //Debug.Log(character + "healed themselves");
+                UIManager.Instance.DoBattleFeedback(character.name + " healed themselves");
                 break;
             case 2: // aoe attack
                 int aoeDamage = (int)(character.GetAOEDamage() * multiplier);
@@ -195,7 +197,8 @@ public class AttackingPhaseManager : MonoBehaviour
                         characters[j].TakeDamage(aoeDamage );
                     }
                 }
-                Debug.Log(character + "AOE attacked ");
+               // Debug.Log(character + "AOE attacked ");
+                UIManager.Instance.DoBattleFeedback(character.name + " AOE attacked");
                 break;
             case 3: // aoe heal 
                 if (attackers == Attackers.Enemies)
@@ -212,7 +215,8 @@ public class AttackingPhaseManager : MonoBehaviour
                         player.Heal((int)(heal* multiplier)); ;
                     }
                 }
-                Debug.Log(character + "AOE healed ");
+                //Debug.Log(character + "AOE healed ");
+                UIManager.Instance.DoBattleFeedback(character.name + " AOE healed");
                 break;
 
             case 4: //attack debuff
@@ -224,6 +228,7 @@ public class AttackingPhaseManager : MonoBehaviour
                 {
                     attackDebuffPlayerAdded = true;
                 }
+                UIManager.Instance.DoBattleFeedback(character.name + " debuffed the oposition");
 
                 break;
             case 5: //attackbuff
@@ -235,6 +240,7 @@ public class AttackingPhaseManager : MonoBehaviour
                 {
                     attackBuffEnemyAdded = true;
                 }
+                UIManager.Instance.DoBattleFeedback(character.name  + " buffed their team");
 
                 break;
 
@@ -275,19 +281,19 @@ public class AttackingPhaseManager : MonoBehaviour
         if (attackBuffPlayerAdded && attackDebuffPlayerAdded) 
         {
             PlayerBuff.attackBuff = 1;
-            UIManager.Instance.NoShowAttackBuff();
+            UIManager.Instance.NoShowAttackBuffPlayer();
         }
         else
         {
             if (attackBuffPlayerAdded)
             {
                 PlayerBuff.attackBuff = attackBuff;
-                UIManager.Instance.ShowAttackBuff(true);
+                UIManager.Instance.ShowAttackBuffPlayer(true);
             }
             if (attackDebuffPlayerAdded)
             {
                 PlayerBuff.attackBuff = attackDebuff;
-                UIManager.Instance.ShowAttackBuff(false);
+                UIManager.Instance.ShowAttackBuffPlayer(false);
             }
         }
 
@@ -301,16 +307,19 @@ public class AttackingPhaseManager : MonoBehaviour
         if (attackDebuffEnemyAdded && attackBuffEnemyAdded)
         {
             EnemyBuff.attackBuff = 1;
+            UIManager.Instance.NoShowAttackBuffEnemy();
         }
         else
         {
             if (attackBuffEnemyAdded)
             {
                 EnemyBuff.attackBuff = attackBuff;
+                UIManager.Instance.ShowAttackBuffEnemy(true);
             }
             if (attackDebuffEnemyAdded)
             {
                 EnemyBuff.attackBuff = attackDebuff;
+                UIManager.Instance.ShowAttackBuffEnemy(false);
             }
         }
 

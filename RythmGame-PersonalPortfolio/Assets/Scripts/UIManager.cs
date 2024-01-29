@@ -24,9 +24,14 @@ public class UIManager : MonoBehaviour
     GameObject arrowLeft;
 
     [SerializeField]
-    GameObject buffAttack;
+    GameObject buffAttackPlayer;
     [SerializeField]
-    GameObject debuffAttack;
+    GameObject debuffAttackPlayer;
+
+    [SerializeField]
+    GameObject buffAttackEnemy;
+    [SerializeField]
+    GameObject debuffAttackEnemy;
 
     [SerializeField]
     List<GameObject> harmonies = new List<GameObject>();
@@ -35,6 +40,14 @@ public class UIManager : MonoBehaviour
     GameObject finishScreen;
     [SerializeField]
     TextMeshProUGUI finishScreenText;
+
+    [SerializeField]
+    TextMeshProUGUI battleFeedBack;
+
+    [SerializeField]
+    List<TextMeshProUGUI> livesPlayers = new List<TextMeshProUGUI>();
+    [SerializeField]
+    List<TextMeshProUGUI> livesEnemies = new List<TextMeshProUGUI>();
 
 
 
@@ -119,23 +132,42 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void ShowAttackBuff(bool buffed)
+    public void ShowAttackBuffPlayer(bool buffed)
     {
         if (buffed)
         {
-            debuffAttack.SetActive(false);
-            buffAttack.SetActive(true);
+            debuffAttackPlayer.SetActive(false);
+            buffAttackPlayer.SetActive(true);
         }
         else
         {
-            buffAttack.SetActive(false);
-            debuffAttack.SetActive(true);
+            buffAttackPlayer.SetActive(false);
+            debuffAttackPlayer.SetActive(true);
         }
     }
-    public void NoShowAttackBuff()
+    public void NoShowAttackBuffPlayer()
     {
-        buffAttack.SetActive(false);
-        debuffAttack.SetActive(false);
+        buffAttackPlayer.SetActive(false);
+        debuffAttackPlayer.SetActive(false);
+    }
+
+    public void ShowAttackBuffEnemy(bool buffed)
+    {
+        if (buffed)
+        {
+            debuffAttackEnemy.SetActive(false);
+            buffAttackEnemy.SetActive(true);
+        }
+        else
+        {
+            buffAttackEnemy.SetActive(false);
+            debuffAttackEnemy.SetActive(true);
+        }
+    }
+    public void NoShowAttackBuffEnemy()
+    {
+        buffAttackEnemy.SetActive(false);
+        debuffAttackEnemy.SetActive(false);
     }
 
     public void EnableFinishScreen(bool charactersWon)
@@ -151,5 +183,33 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void DoBattleFeedback(string text)
+    {
+        battleFeedBack.SetText(text);
+        StartCoroutine(FadeOut(battleFeedBack, 1));
+    }
+
+    public void SetLifePlayers(int life, int i)
+    {
+        if (life > 0)
+        {
+            livesPlayers[i].SetText(life.ToString());
+        }
+        else
+        {
+            livesPlayers[i].SetText("");
+        }
+    }
+    public void SetLifeEnemies(int life, int i)
+    {
+        if (life > 0)
+        {
+            livesEnemies[i].SetText(life.ToString());
+        }
+        else
+        {
+            livesEnemies[i].SetText("");
+        }
+    }
 
 }
