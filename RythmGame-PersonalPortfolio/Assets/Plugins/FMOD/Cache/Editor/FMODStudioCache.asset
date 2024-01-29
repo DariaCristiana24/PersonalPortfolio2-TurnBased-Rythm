@@ -175,7 +175,7 @@ MonoBehaviour:
   - {fileID: -1213952498944883421}
   MinDistance: 1
   MaxDistance: 20
-  Length: 4000
+  Length: 8000
 --- !u!114 &-1213952498944883421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,10 +243,10 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638421262086040508
+  lastModified: 638421272480000000
   FileSizes:
   - Name: Desktop
-    Value: 1316
+    Value: 1352
   Exists: 1
 --- !u!114 &-460206798540058128
 MonoBehaviour:
@@ -276,9 +276,10 @@ MonoBehaviour:
   - {fileID: 2756906586992316911}
   - {fileID: 3249584460229186299}
   - {fileID: 9198816924560517079}
+  - {fileID: 5338429797528066495}
   MinDistance: 1
   MaxDistance: 20
-  Length: 8000
+  Length: 32000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +311,7 @@ MonoBehaviour:
   - {fileID: 4458484561728719250}
   StringsBanks:
   - {fileID: -692504334824647344}
-  cacheTime: 638421262086040508
+  cacheTime: 638421272480000000
   cacheVersion: 131616
 --- !u!114 &967656683786610772
 MonoBehaviour:
@@ -389,7 +390,7 @@ MonoBehaviour:
   - {fileID: -4592268017580450082}
   MinDistance: 1
   MaxDistance: 20
-  Length: 4000
+  Length: 8000
 --- !u!114 &2756906586992316911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,10 +457,34 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638421262086006867
+  lastModified: 638421272480000000
   FileSizes:
   - Name: Desktop
-    Value: 121312
+    Value: 123104
+  Exists: 1
+--- !u!114 &5338429797528066495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NodeSpawnTest/Mode
+  m_EditorClassIdentifier: 
+  Name: Mode
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2535233126
+    data2: 3784886514
+  Type: 1
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &8557635783253931577
 MonoBehaviour:

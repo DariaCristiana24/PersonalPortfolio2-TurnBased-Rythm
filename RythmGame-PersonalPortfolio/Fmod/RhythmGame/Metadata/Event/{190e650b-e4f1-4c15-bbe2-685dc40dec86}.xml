@@ -118,7 +118,10 @@
 	<object class="MixerBusPanner" id="{f8828dde-2f5d-4256-b489-77b78cfb1a9b}" />
 	<object class="SingleSound" id="{23c9841a-dd93-4367-b02f-909786fe8263}">
 		<property name="length">
-			<value>4</value>
+			<value>8</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{2499600c-fe1a-47a7-bfe1-23e40b2dab65}</destination>
@@ -140,7 +143,7 @@
 	</object>
 	<object class="CommandSound" id="{bbd0bee6-b2d4-4884-981f-ed44a685a512}">
 		<property name="start">
-			<value>0.375</value>
+			<value>0.37500000000000089</value>
 		</property>
 		<property name="length">
 			<value>0.14981343283582094</value>
@@ -171,7 +174,7 @@
 	</object>
 	<object class="CommandSound" id="{2f06756c-7fd1-408e-8fa0-96bd02613884}">
 		<property name="start">
-			<value>1.65625</value>
+			<value>1.6562500000000024</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
@@ -188,7 +191,7 @@
 	</object>
 	<object class="CommandSound" id="{cf83925c-4fa2-4bcd-b1a4-8b512b717c4c}">
 		<property name="start">
-			<value>1.875</value>
+			<value>1.8750000000000016</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
@@ -205,7 +208,7 @@
 	</object>
 	<object class="CommandSound" id="{1c6be15d-337d-46ca-ab7d-eda1a6943f9e}">
 		<property name="start">
-			<value>2.75</value>
+			<value>2.7500000000000036</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
@@ -222,7 +225,7 @@
 	</object>
 	<object class="CommandSound" id="{25641ac7-72f2-438c-81a9-0c3e1d60690d}">
 		<property name="start">
-			<value>3.625</value>
+			<value>3.6250000000000053</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
@@ -239,7 +242,7 @@
 	</object>
 	<object class="CommandSound" id="{471e8322-8f18-4f3f-9cd6-bbb795c8ecff}">
 		<property name="start">
-			<value>0.74106343283582088</value>
+			<value>0.74106343283582321</value>
 		</property>
 		<property name="length">
 			<value>0.14981343283582094</value>
@@ -256,7 +259,7 @@
 	</object>
 	<object class="CommandSound" id="{27b9501a-9ac4-4f9d-9ab1-a7b3c466807a}">
 		<property name="start">
-			<value>2</value>
+			<value>2.0000000000000018</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
@@ -273,7 +276,7 @@
 	</object>
 	<object class="CommandSound" id="{c2bb18d0-2841-45c0-80db-c282c3773884}">
 		<property name="start">
-			<value>2.375</value>
+			<value>2.3750000000000027</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
@@ -290,7 +293,7 @@
 	</object>
 	<object class="CommandSound" id="{02545c53-f7db-4246-bbff-f93ee8acf260}">
 		<property name="start">
-			<value>3.75</value>
+			<value>3.7500000000000058</value>
 		</property>
 		<property name="length">
 			<value>0.125</value>
