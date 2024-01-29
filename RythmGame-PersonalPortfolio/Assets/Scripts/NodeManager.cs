@@ -39,7 +39,7 @@ public class NodeManager : MonoBehaviour
     AttackingPhaseManager attackingPhaseManager;
     BeatLineBehaviour beatLineBehaviour;
 
-    // public FMOD.Studio.PARAMETER_ID musicPar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,7 +93,7 @@ public class NodeManager : MonoBehaviour
         }
         */
         instanceBig.getTimelinePosition(out int pos);
-        Debug.Log(pos);
+        //Debug.Log(pos);
 
         instanceBig.getPlaybackState(out  FMOD.Studio.PLAYBACK_STATE stateTrack);
         if (Input.GetKeyDown(KeyCode.B) /*stateTrack.ToString() == "STOPPED"*/)
@@ -106,26 +106,7 @@ public class NodeManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.N) && GameManager.Instance.State == GameManager.GameState.Rhythm) //stateTrack.ToString() == "SUSTAINING") // in between tracks per player 
         {
-            if (characterTrackIndex < attackingPhaseManager.characters.Count-1)
-            {
-                attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
-                Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
-                characterTrackIndex++;
-                beatLineBehaviour.SetRhythmScore(0);
-            }
-            else
-            {
-                attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
-                Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
-                characterTrackIndex++;
-                beatLineBehaviour.SetRhythmScore(0);
-                characterTrackIndex = 0;
-                //instanceBig.stop();
-                instanceBig.stop(new FMOD.Studio.STOP_MODE());
-                GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
-                spawningWithInterval = false;
-                spawningFMOD = false;
-            }
+            nextCharacter();
 
         }
 
@@ -170,7 +151,44 @@ public class NodeManager : MonoBehaviour
     {
         spawningFMOD = true;
         instanceBig.start();
+        StartCoroutine(timeChecking());
 
+    }
+
+    IEnumerator timeChecking()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            nextCharacter();
+            yield return new WaitForSecondsRealtime(16);
+        }
+        yield return new WaitForSecondsRealtime(1); // one second of transitioning 
+        nextCharacter();
+
+    }
+
+    void nextCharacter()
+    {
+        if (characterTrackIndex < attackingPhaseManager.characters.Count - 1)
+        {
+            attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
+            Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
+            characterTrackIndex++;
+            beatLineBehaviour.SetRhythmScore(0);
+        }
+        else
+        {
+            attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
+            Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
+            characterTrackIndex++;
+            beatLineBehaviour.SetRhythmScore(0);
+            characterTrackIndex = 0;
+            //instanceBig.stop();
+            instanceBig.stop(new FMOD.Studio.STOP_MODE());
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
+            spawningWithInterval = false;
+            spawningFMOD = false;
+        }
     }
 
 

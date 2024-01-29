@@ -48,14 +48,6 @@ public class AbilitiesManager : MonoBehaviour
                     }
                             
                 }
-                /*for(int i = harmonizedAbilities.Count; i<chosenAbilities.Count;i++)
-                {
-                    if (attackingPhaseManager.characters[i])
-                    {
-                        attackingPhaseManager.characters[i].SetHarmonized(false);
-                    }
-
-                }*/
             }
             else
             {

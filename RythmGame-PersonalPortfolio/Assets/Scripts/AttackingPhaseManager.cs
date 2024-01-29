@@ -181,7 +181,6 @@ public class AttackingPhaseManager : MonoBehaviour
                 if (attackers == Attackers.Characters)
                 {
                     aoeDamage = (int)(aoeDamage * PlayerBuff.attackBuff);
-                    //foreach (Character enemy in enemies)
                     for(int j = 0; j<enemies.Count; j++)
                     {
                         enemies[j].TakeDamage(aoeDamage);

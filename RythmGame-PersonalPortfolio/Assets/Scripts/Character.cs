@@ -45,7 +45,6 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //add debuff s here
         life -=damage;
         if(life<= 0)
         {
