@@ -5,17 +5,29 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField]
+    int ID = 0;
+    [SerializeField]
     int life = 100;
 
     //ability
     [SerializeField]
     int abilityID = 0;
 
-    //[SerializeField]
-    int bonusMultiplier = 1;
+    [SerializeField]
+    int damage = 0;
+
+
+    [SerializeField]
+    int aoeDamage = 0;
+
+    [SerializeField]
+    float bonusMultiplier = 1;
 
     [SerializeField]
     bool isEnemy;
+
+    [SerializeField]
+    bool isHarmonized = false;
 
     AttackingPhaseManager attackingPhaseManager;
 
@@ -33,6 +45,7 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //add debuff s here
         life -=damage;
         if(life<= 0)
         {
@@ -65,12 +78,49 @@ public class Character : MonoBehaviour
         return abilityID;
     }
 
-    public void SetMultiplier(int multiplier)
+    public void SetMultiplier(float multiplier)
     {
-        bonusMultiplier = multiplier;
+        if (multiplier > -1)
+        {
+            bonusMultiplier = multiplier + 1; // + 1 because we dont the multiplier to decrease our number // 
+
+        }
+        else
+        {
+            Debug.Log("Multiplier is not > 0 : " + multiplier);
+        }
+        if (isHarmonized)
+        {
+            bonusMultiplier += 0.5f;
+        }
+        UIManager.Instance.UpdateMultiplier(bonusMultiplier,ID);
+
+
     }
-    public int GetMultiplier()
+    public float GetMultiplier()
     {
         return bonusMultiplier;
     }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+    public int GetLife()
+    {
+        return life;
+    }
+
+    public int GetAOEDamage()
+    {
+        return aoeDamage;
+    }
+
+    public void SetHarmonized(bool harmony)
+    {
+        isHarmonized = harmony;
+        UIManager.Instance.ShowHarmony(harmony, ID);
+
+    }
+
 }

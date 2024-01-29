@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class CharacterAbbilityManager : MonoBehaviour
 {
@@ -8,17 +10,23 @@ public class CharacterAbbilityManager : MonoBehaviour
     int characterID;
 
     [SerializeField]
-    List<int> colorAbility = new List<int>();
+    UnityEngine.UI.Image characterImg;
 
-     int chosenColor;
+    [SerializeField]
+    List<int> colorAbilityID = new List<int>();
+
+
+    [SerializeField]
+    List<Color> colors = new List <Color>();
+    int chosenColor;
 
     AbilitiesManager abilitiesManager;
-    HarmonizingManager hairmonizingManager;
+
     // Start is called before the first frame update
     void Start()
     {
         abilitiesManager = FindObjectOfType<AbilitiesManager>();
-        hairmonizingManager = FindObjectOfType<HarmonizingManager>();
+
     }
 
     // Update is called once per frame
@@ -29,8 +37,14 @@ public class CharacterAbbilityManager : MonoBehaviour
 
     public void ButtonClicked(int i) 
     {   
-        chosenColor = colorAbility[i];
+        chosenColor = colorAbilityID[i];
         abilitiesManager.AddAbility(characterID, chosenColor);
+        characterImg.color = colors[i];
         Debug.Log("Clicked ability with color code: " + chosenColor);
+    }
+
+    void OnEnable()
+    {
+        characterImg.color = Color.white;
     }
 }

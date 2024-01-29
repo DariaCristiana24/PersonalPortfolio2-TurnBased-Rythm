@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using static UnityEditor.Profiling.RawFrameDataView;
+using FMOD.Studio;
 
 public class NodeManager : MonoBehaviour
 {
@@ -11,7 +11,9 @@ public class NodeManager : MonoBehaviour
     float timer = 0;
 
     [SerializeField]
-    bool spawning = true;
+    bool spawningWithInterval = true;
+    [SerializeField]
+    bool spawningFMOD = true;
 
     [SerializeField]
     List<GameObject> nodePrefabs = new List<GameObject>();
@@ -26,13 +28,30 @@ public class NodeManager : MonoBehaviour
     private FMODUnity.EventReference onBeatEvent;
     private FMOD.Studio.EventInstance instance;
 
-   // public FMOD.Studio.PARAMETER_ID musicPar;
+
+    [SerializeField]
+    private FMODUnity.EventReference onBeatEventBig;
+    private FMOD.Studio.EventInstance instanceBig;
+
+    bool nodeCanSpawn = true;
+
+    int characterTrackIndex = 0;
+    AttackingPhaseManager attackingPhaseManager;
+    BeatLineBehaviour beatLineBehaviour;
+
+    // public FMOD.Studio.PARAMETER_ID musicPar;
     // Start is called before the first frame update
     void Start()
     {
         instance = FMODUnity.RuntimeManager.CreateInstance(onBeatEvent);
         instance.start();
+
+        instanceBig = FMODUnity.RuntimeManager.CreateInstance(onBeatEventBig);
+
+
         timer = timeBetween;
+        attackingPhaseManager = FindObjectOfType<AttackingPhaseManager>();
+        beatLineBehaviour = FindObjectOfType<BeatLineBehaviour>();
     }
 
     // Update is called once per frame
@@ -44,10 +63,22 @@ public class NodeManager : MonoBehaviour
        // instance.setParameterByName("NodeOnBeat", 1f);
        // instance.getParameterByName("NodeOnBeat", out float nodeOnBeat);
         instance.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+        string currentState = state.ToString();
+        if (spawningFMOD)
+        {
+            if (currentState == "PLAYING" && nodeCanSpawn)
+            {
+                spawnNode();
+                nodeCanSpawn = false;
+            }
 
-
-        UnityEngine.Debug.Log(state);
-        if (spawning)
+            if (currentState == "SUSTAINING")
+            {
+                nodeCanSpawn = true;
+            }
+        }
+     //   UnityEngine.Debug.Log(state);
+        if (spawningWithInterval)
         {
             timer -= Time.deltaTime;
             if (timer < 0)
@@ -61,6 +92,43 @@ public class NodeManager : MonoBehaviour
          paramter.set(false)
         }
         */
+        instanceBig.getTimelinePosition(out int pos);
+        Debug.Log(pos);
+
+        instanceBig.getPlaybackState(out  FMOD.Studio.PLAYBACK_STATE stateTrack);
+        if (Input.GetKeyDown(KeyCode.B) /*stateTrack.ToString() == "STOPPED"*/)
+        {
+            GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
+            spawningWithInterval = false;
+            spawningFMOD = false;
+            characterTrackIndex = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.N) && GameManager.Instance.State == GameManager.GameState.Rhythm) //stateTrack.ToString() == "SUSTAINING") // in between tracks per player 
+        {
+            if (characterTrackIndex < attackingPhaseManager.characters.Count-1)
+            {
+                attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
+                Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
+                characterTrackIndex++;
+                beatLineBehaviour.SetRhythmScore(0);
+            }
+            else
+            {
+                attackingPhaseManager.characters[characterTrackIndex].SetMultiplier(beatLineBehaviour.GetRhythmScore() / 1000);
+                Debug.Log("multiplier ch " + characterTrackIndex + " : " + beatLineBehaviour.GetRhythmScore() / 1000);
+                characterTrackIndex++;
+                beatLineBehaviour.SetRhythmScore(0);
+                characterTrackIndex = 0;
+                //instanceBig.stop();
+                instanceBig.stop(new FMOD.Studio.STOP_MODE());
+                GameManager.Instance.UpdateGameState(GameManager.GameState.Battle);
+                spawningWithInterval = false;
+                spawningFMOD = false;
+            }
+
+        }
+
     }
 
     void spawnNode()
@@ -85,14 +153,25 @@ public class NodeManager : MonoBehaviour
         }
     }
 
-    public void RemoveFirstNode()
+    public IEnumerator RemoveFirstNode()
     {
         Destroy(activeNodes[0].gameObject);
         activeNodes.RemoveAt(0);
+        yield return new WaitForSecondsRealtime(0.05f);
+
     }
 
     public int GetNodePos()
     {
         return activeNodes[0].GetComponent<NodeBehaviour>().key;
     }
+
+    public void StartSpawning()
+    {
+        spawningFMOD = true;
+        instanceBig.start();
+
+    }
+
+
 }
