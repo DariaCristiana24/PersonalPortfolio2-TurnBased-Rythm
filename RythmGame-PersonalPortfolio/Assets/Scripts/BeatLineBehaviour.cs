@@ -34,7 +34,7 @@ public class BeatLineBehaviour : MonoBehaviour
             switch (nodePos)
             {
                 case 0:
-                    if (Input.GetKeyDown(KeyCode.A))
+                    if (Input.GetKeyDown(KeyCode.Q))
                     {
                         CheckFirstNode();
                     }
@@ -46,13 +46,13 @@ public class BeatLineBehaviour : MonoBehaviour
                     }
                     break;
                 case 2:
-                    if (Input.GetKeyDown(KeyCode.S))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         CheckFirstNode();
                     }
                     break;
                 case 3:
-                    if (Input.GetKeyDown(KeyCode.D))
+                    if (Input.GetKeyDown(KeyCode.R))
                     {
                         CheckFirstNode();
                     }

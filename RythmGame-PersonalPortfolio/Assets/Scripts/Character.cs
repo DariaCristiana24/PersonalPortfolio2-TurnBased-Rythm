@@ -35,6 +35,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         attackingPhaseManager = FindObjectOfType<AttackingPhaseManager>();
+       
     }
 
     // Update is called once per frame
@@ -45,7 +46,6 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //add debuff s here
         life -=damage;
         if(life<= 0)
         {
@@ -53,6 +53,14 @@ public class Character : MonoBehaviour
 
             attackingPhaseManager.CharacterKilled(this, isEnemy);
             
+        }
+        if (!isEnemy)
+        {
+            UIManager.Instance.SetLifePlayers(life, ID);
+        }
+        else
+        {
+            UIManager.Instance.SetLifeEnemies(life, ID);
         }
     }
 
@@ -66,6 +74,14 @@ public class Character : MonoBehaviour
         {
             life = 100;
         }
+        if (!isEnemy)
+        {
+            UIManager.Instance.SetLifePlayers(life, ID);
+        }
+        else
+        {
+            UIManager.Instance.SetLifeEnemies(life, ID);
+        }
     }
 
     public void SetAbility(int ID)
@@ -74,7 +90,7 @@ public class Character : MonoBehaviour
     }
     public int GetAbility()
     {
-        if(isEnemy) abilityID = Random.Range(0, 2);
+        if(isEnemy) abilityID = Random.Range(0, 6);
         return abilityID;
     }
 
