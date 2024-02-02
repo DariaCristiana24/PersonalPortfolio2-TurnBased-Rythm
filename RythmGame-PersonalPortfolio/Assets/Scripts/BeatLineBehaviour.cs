@@ -106,6 +106,7 @@ public class BeatLineBehaviour : MonoBehaviour
     public void SetRhythmScore(float score)
     {
          scoreRhythm = score;
+        UIManager.Instance.setRhythmScore(scoreRhythm);
     }
 
 

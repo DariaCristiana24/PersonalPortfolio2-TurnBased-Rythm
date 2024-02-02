@@ -74,7 +74,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
---- !u!114 &-5065510383745487862
+--- !u!114 &-7144685702372241226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,21 +84,47 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NodeSpawnTest/NodeOnBeat
+  m_Name: parameter:/MusicHub/Mode
   m_EditorClassIdentifier: 
-  Name: NodeOnBeat
+  Name: Mode
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2535233126
+    data2: 3784886514
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4625434243681122003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicHub/Ability2
+  m_EditorClassIdentifier: 
+  Name: Ability2
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 79530701
-    data2: 2910942938
-  Type: 1
+    data1: 2299207805
+    data2: 352809743
+  Type: 2
   IsGlobal: 0
-  Labels: []
+  Labels:
+  - Thundering Pipe Blast
+  - Value B
   Exists: 1
---- !u!114 &-4592268017580450082
+--- !u!114 &-3438372094713378051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +134,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Thunder Pipe Blast/PlayNode
+  m_Name: parameter:/Group Heal/PlayNode
   m_EditorClassIdentifier: 
   Name: PlayNode
   StudioPath: 
@@ -148,7 +174,7 @@ MonoBehaviour:
   - False
   - True
   Exists: 1
---- !u!114 &-2358347977086073571
+--- !u!114 &-1984036570362595625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,48 +184,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tuba Tremor
+  m_Name: event:/Violin Abilities/Group Heal
   m_EditorClassIdentifier: 
-  Path: event:/Tuba Tremor
+  Path: event:/Violin Abilities/Group Heal
   Guid:
-    Data1: -881431908
-    Data2: 1341458389
-    Data3: -656170593
-    Data4: -656355608
+    Data1: 1282781
+    Data2: 1269112749
+    Data3: -983394156
+    Data4: 1141661499
   Banks:
   - {fileID: 4458484561728719250}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -1213952498944883421}
+  - {fileID: -3438372094713378051}
   MinDistance: 1
   MaxDistance: 20
-  Length: 8000
---- !u!114 &-1213952498944883421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Tuba Tremor/PlayNode
-  m_EditorClassIdentifier: 
-  Name: PlayNode
-  StudioPath: 
-  Min: 0
-  Max: 1
-  Default: 0
-  ID:
-    data1: 2618769926
-    data2: 1322505572
-  Type: 1
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
+  Length: 12000
 --- !u!114 &-721133749853174887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,43 +245,11 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638421278547763907
+  lastModified: 638424834299757604
   FileSizes:
   - Name: Desktop
-    Value: 1352
+    Value: 1570
   Exists: 1
---- !u!114 &-460206798540058128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/NodeSpawnTest
-  m_EditorClassIdentifier: 
-  Path: event:/NodeSpawnTest
-  Guid:
-    Data1: -1361387289
-    Data2: 1077763727
-    Data3: -2021539139
-    Data4: 505239609
-  Banks:
-  - {fileID: 4458484561728719250}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: -5065510383745487862}
-  - {fileID: 2756906586992316911}
-  - {fileID: 3249584460229186299}
-  - {fileID: 9198816924560517079}
-  - {fileID: 5338429797528066495}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 32000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,10 +266,12 @@ MonoBehaviour:
   - {fileID: -692504334824647344}
   - {fileID: 4458484561728719250}
   EditorEvents:
-  - {fileID: -460206798540058128}
   - {fileID: -721133749853174887}
-  - {fileID: 2443043276752595539}
-  - {fileID: -2358347977086073571}
+  - {fileID: 4341433543413803882}
+  - {fileID: 3319607313187673841}
+  - {fileID: 4184267951826661135}
+  - {fileID: -1984036570362595625}
+  - {fileID: 6503628158539132579}
   EditorParameters:
   - {fileID: 8557635783253931577}
   - {fileID: -2447067156111473014}
@@ -311,7 +283,7 @@ MonoBehaviour:
   - {fileID: 4458484561728719250}
   StringsBanks:
   - {fileID: -692504334824647344}
-  cacheTime: 638421278547763907
+  cacheTime: 638424834299757604
   cacheVersion: 131616
 --- !u!114 &967656683786610772
 MonoBehaviour:
@@ -363,35 +335,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
---- !u!114 &2443043276752595539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Thunder Pipe Blast
-  m_EditorClassIdentifier: 
-  Path: event:/Thunder Pipe Blast
-  Guid:
-    Data1: 420373771
-    Data2: 1276503281
-    Data3: 1567154875
-    Data4: -2031350332
-  Banks:
-  - {fileID: 4458484561728719250}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: -4592268017580450082}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8000
---- !u!114 &2756906586992316911
+--- !u!114 &1677014322692364199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,7 +345,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NodeSpawnTest/PlayNode
+  m_Name: parameter:/MusicHub/PlayNode
   m_EditorClassIdentifier: 
   Name: PlayNode
   StudioPath: 
@@ -415,7 +359,7 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
---- !u!114 &3249584460229186299
+--- !u!114 &1775955821805018215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -425,7 +369,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NodeSpawnTest/Ability1
+  m_Name: parameter:/MusicHub/Ability1
   m_EditorClassIdentifier: 
   Name: Ability1
   StudioPath: 
@@ -442,6 +386,140 @@ MonoBehaviour:
   - Taunting Tuba
   - Brass Blight
   Exists: 1
+--- !u!114 &2081482493922260030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicHub/Ability3
+  m_EditorClassIdentifier: 
+  Name: Ability3
+  StudioPath: 
+  Min: 0
+  Max: 0
+  Default: 0
+  ID:
+    data1: 3498031306
+    data2: 944112499
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Group attack buff that lasts one turn
+  Exists: 1
+--- !u!114 &3311063573355916883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicHub/Ability4
+  m_EditorClassIdentifier: 
+  Name: Ability4
+  StudioPath: 
+  Min: 0
+  Max: 0
+  Default: 0
+  ID:
+    data1: 3457398173
+    data2: 2450518545
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Group Heal
+  Exists: 1
+--- !u!114 &3319607313187673841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tuba Abilities/Tuba Tremor
+  m_EditorClassIdentifier: 
+  Path: event:/Tuba Abilities/Tuba Tremor
+  Guid:
+    Data1: -881431908
+    Data2: 1341458389
+    Data3: -656170593
+    Data4: -656355608
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 9223017128599588713}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12000
+--- !u!114 &4184267951826661135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Flute Abilites/Group attack buff that lasts one turn
+  m_EditorClassIdentifier: 
+  Path: event:/Flute Abilites/Group attack buff that lasts one turn
+  Guid:
+    Data1: 1426111706
+    Data2: 1179418367
+    Data3: -1340076646
+    Data4: 404876710
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8245852370056559917}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12000
+--- !u!114 &4341433543413803882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Organ Abilities/Thunder Pipe Blast
+  m_EditorClassIdentifier: 
+  Path: event:/Organ Abilities/Thunder Pipe Blast
+  Guid:
+    Data1: 420373771
+    Data2: 1276503281
+    Data3: 1567154875
+    Data4: -2031350332
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 4676592843254109176}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12000
 --- !u!114 &4458484561728719250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,12 +535,12 @@ MonoBehaviour:
   Path: Fmod/RhythmGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638421278547763907
+  lastModified: 638424834299710377
   FileSizes:
   - Name: Desktop
-    Value: 123104
+    Value: 1329568
   Exists: 1
---- !u!114 &5338429797528066495
+--- !u!114 &4676592843254109176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,18 +550,100 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NodeSpawnTest/Mode
+  m_Name: parameter:/Thunder Pipe Blast/PlayNode
   m_EditorClassIdentifier: 
-  Name: Mode
+  Name: PlayNode
   StudioPath: 
   Min: 0
-  Max: 2
+  Max: 1
   Default: 0
   ID:
-    data1: 2535233126
-    data2: 3784886514
+    data1: 2618769926
+    data2: 1322505572
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &5917686688921385396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicHub/NodeOnBeat
+  m_EditorClassIdentifier: 
+  Name: NodeOnBeat
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 79530701
+    data2: 2910942938
   Type: 1
   IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6503628158539132579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MusicHub
+  m_EditorClassIdentifier: 
+  Path: event:/MusicHub
+  Guid:
+    Data1: -1361387289
+    Data2: 1077763727
+    Data3: -2021539139
+    Data4: 505239609
+  Banks:
+  - {fileID: 4458484561728719250}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7144685702372241226}
+  - {fileID: 1775955821805018215}
+  - {fileID: 5917686688921385396}
+  - {fileID: 1677014322692364199}
+  - {fileID: 2081482493922260030}
+  - {fileID: 3311063573355916883}
+  - {fileID: -4625434243681122003}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 80000
+--- !u!114 &8245852370056559917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Group attack buff that lasts one turn/PlayNode
+  m_EditorClassIdentifier: 
+  Name: PlayNode
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2618769926
+    data2: 1322505572
+  Type: 1
+  IsGlobal: 1
   Labels: []
   Exists: 1
 --- !u!114 &8557635783253931577
@@ -526,7 +686,7 @@ MonoBehaviour:
   - B 2
   - C 3
   Exists: 1
---- !u!114 &9198816924560517079
+--- !u!114 &9223017128599588713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,19 +696,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/NodeSpawnTest/Ability2
+  m_Name: parameter:/Tuba Tremor/PlayNode
   m_EditorClassIdentifier: 
-  Name: Ability2
+  Name: PlayNode
   StudioPath: 
   Min: 0
   Max: 1
   Default: 0
   ID:
-    data1: 2299207805
-    data2: 352809743
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - Thundering Pipe Blast
-  - Value B
+    data1: 2618769926
+    data2: 1322505572
+  Type: 1
+  IsGlobal: 1
+  Labels: []
   Exists: 1

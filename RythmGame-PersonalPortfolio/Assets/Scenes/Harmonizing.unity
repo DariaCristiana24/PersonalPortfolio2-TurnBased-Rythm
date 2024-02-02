@@ -12029,7 +12029,7 @@ MonoBehaviour:
       Data2: 1077763727
       Data3: -2021539139
       Data4: 505239609
-    Path: event:/NodeSpawnTest
+    Path: event:/MusicHub
 --- !u!65 &1855054533
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12139,7 +12139,7 @@ MonoBehaviour:
       Data2: 1077763727
       Data3: -2021539139
       Data4: 505239609
-    Path: event:/NodeSpawnTest
+    Path: event:/MusicHub
   Event: 
   PlayEvent: 1
   StopEvent: 0

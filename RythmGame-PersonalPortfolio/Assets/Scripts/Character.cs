@@ -90,7 +90,17 @@ public class Character : MonoBehaviour
     }
     public int GetAbility()
     {
-        if(isEnemy) abilityID = Random.Range(0, 6);
+        if (isEnemy) 
+        {int ran = Random.Range(0, 5);
+            if(ran < 4) {
+                abilityID = Random.Range(0, 2);
+            }
+            else
+            {
+                abilityID = Random.Range(2, 6);
+            }
+        }
+
         return abilityID;
     }
 
