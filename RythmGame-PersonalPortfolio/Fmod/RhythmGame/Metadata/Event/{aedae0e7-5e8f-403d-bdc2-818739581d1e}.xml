@@ -37,8 +37,8 @@
 			<destination>{341141ea-151f-4a49-9331-b3ac9000edb3}</destination>
 		</relationship>
 		<relationship name="parameters">
-			<destination>{b2c1fd68-3b24-4536-8d40-d792f71165ab}</destination>
 			<destination>{645c629a-0aa3-4df9-a029-75ac27038e73}</destination>
+			<destination>{b2c1fd68-3b24-4536-8d40-d792f71165ab}</destination>
 			<destination>{908a0bf5-8680-4929-be11-b39dcf82ec34}</destination>
 			<destination>{632b832f-a40f-4e85-8be2-953948031ef7}</destination>
 			<destination>{a6f7866f-0491-4ee3-acaa-153050557926}</destination>
@@ -144,14 +144,14 @@
 			<destination>{c888f20d-cad8-446b-8cb7-6f9b274217ff}</destination>
 		</relationship>
 	</object>
-	<object class="ParameterProxy" id="{b2c1fd68-3b24-4536-8d40-d792f71165ab}">
-		<relationship name="preset">
-			<destination>{93522ce6-a504-4df8-89f8-98ea04a816dd}</destination>
-		</relationship>
-	</object>
 	<object class="ParameterProxy" id="{645c629a-0aa3-4df9-a029-75ac27038e73}">
 		<relationship name="preset">
 			<destination>{b8e658ca-f639-44c9-bfec-2e8bc1d3c065}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProxy" id="{b2c1fd68-3b24-4536-8d40-d792f71165ab}">
+		<relationship name="preset">
+			<destination>{93522ce6-a504-4df8-89f8-98ea04a816dd}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{908a0bf5-8680-4929-be11-b39dcf82ec34}">
@@ -217,8 +217,9 @@
 		<property name="length">
 			<value>64</value>
 		</property>
+		<property name="name" />
 		<property name="volume">
-			<value>-8.5</value>
+			<value>-3</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{9bdd3ee0-ee7d-4bb6-99eb-5d9ade769315}</destination>
