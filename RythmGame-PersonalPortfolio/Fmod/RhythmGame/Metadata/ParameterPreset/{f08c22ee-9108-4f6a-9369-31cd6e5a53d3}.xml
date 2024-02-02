@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{f08c22ee-9108-4f6a-9369-31cd6e5a53d3}">
+		<property name="name">
+			<value>Ability4</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e14b3dd0-74ed-4344-ba26-4e8971ff45fe}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{925da050-fa0d-4ff9-bb76-23adbe089cdc}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{925da050-fa0d-4ff9-bb76-23adbe089cdc}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Group Heal</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

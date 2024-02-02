@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{58faf252-6d11-4ec1-9e27-f9a0a8f992ff}">
+		<property name="name">
+			<value>Ability3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e14b3dd0-74ed-4344-ba26-4e8971ff45fe}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{6a022074-988e-4b74-b6c6-e8af2da9dfca}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{6a022074-988e-4b74-b6c6-e8af2da9dfca}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Group attack buff that lasts one turn</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

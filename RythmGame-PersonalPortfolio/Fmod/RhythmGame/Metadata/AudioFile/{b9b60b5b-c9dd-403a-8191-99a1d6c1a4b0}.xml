@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b9b60b5b-c9dd-403a-8191-99a1d6c1a4b0}">
+		<property name="assetPath">
+			<value>Standard Background Beat &amp; Music - 120BPM - 16 seconds.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>16</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4266ea1-7586-45b9-9ea1-671227d892a9}</destination>
+		</relationship>
+	</object>
+</objects>
