@@ -7,7 +7,8 @@ public class Character : MonoBehaviour
     [SerializeField]
     int ID = 0;
     [SerializeField]
-    int life = 100;
+    int maxLife = 200;
+    int life;
 
     //ability
     [SerializeField]
@@ -35,7 +36,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         attackingPhaseManager = FindObjectOfType<AttackingPhaseManager>();
-       
+        life = maxLife;
     }
 
     // Update is called once per frame
@@ -66,13 +67,13 @@ public class Character : MonoBehaviour
 
     public void Heal(int heal)
     {
-        if (life + heal <= 100)
+        if (life + heal <= maxLife)
         {
             life += heal;
         }
         else
         {
-            life = 100;
+            life = maxLife;
         }
         if (!isEnemy)
         {
